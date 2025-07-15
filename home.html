@@ -1,0 +1,436 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/_next/static/chunks/%5Broot-of-the-server%5D__a1dae339._.css"
+        data-precedence="next_static/chunks/[root-of-the-server]__a1dae339._.css">
+    <link rel="preload" as="script" fetchpriority="low"
+        href="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js">
+    <meta name="next-size-adjust" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <title>TractorQuote</title>
+    <meta name="description" content="Manage quotes for tractor parts">
+    <link rel="icon" href="/favicon.ico?favicon.56766c03.ico" sizes="48x48" type="image/x-icon">
+    <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
+    <script src="/_next/static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js" nomodule=""></script>
+    <link rel="preload" href="/_next/static/media/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2"
+        as="font" crossorigin="" type="font/woff2">
+    <style>
+        @font-face {
+            font-family: '__nextjs-Geist';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
+        }
+
+        @font-face {
+            font-family: '__nextjs-Geist Mono';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-mono-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
+        }
+
+        @font-face {
+            font-family: '__nextjs-Geist';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+        }
+
+        @font-face {
+            font-family: '__nextjs-Geist Mono';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-mono-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-background font-body antialiased inter_edb9147b-module__xWQRDW__variable" style="">
+    <div class="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+        <div class="hidden border-r bg-muted/40 md:block">
+            <div class="flex h-full max-h-screen flex-col gap-2">
+                <div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6"><a
+                        class="flex items-center gap-2 font-semibold" href="/"><img alt="TractorQuote Logo"
+                            data-ai-hint="tractor gear" loading="lazy" width="32" height="32" decoding="async"
+                            data-nimg="1" style="color:transparent"
+                            srcset="/_next/image?url=https%3A%2F%2Fplacehold.co%2F32x32.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.co%2F32x32.png&amp;w=64&amp;q=75 2x"
+                            src="/_next/image?url=https%3A%2F%2Fplacehold.co%2F32x32.png&amp;w=64&amp;q=75"><span
+                            class="">TractorQuote</span></a></div>
+                <div class="flex-1">
+                    <nav class="grid items-start px-2 text-sm font-medium lg:px-4"><a
+                            class="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary bg-muted text-primary"
+                            href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-layout-dashboard h-4 w-4">
+                                <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                                <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                                <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                                <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                            </svg>Dashboard</a><a
+                            class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                            href="/quotes"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-4 w-4">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                <path d="M10 9H8"></path>
+                                <path d="M16 13H8"></path>
+                                <path d="M16 17H8"></path>
+                            </svg>Quotes</a><a
+                            class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                            href="/parts"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench h-4 w-4">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                </path>
+                            </svg>Parts</a><a
+                            class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                            href="/machines"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck h-4 w-4">
+                                <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                                <path d="M15 18H9"></path>
+                                <path
+                                    d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
+                                </path>
+                                <circle cx="17" cy="18" r="2"></circle>
+                                <circle cx="7" cy="18" r="2"></circle>
+                            </svg>Machines</a></nav>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <header class="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6 md:hidden"><button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10 shrink-0"
+                    type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-«R33ml7»"
+                    data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-menu h-5 w-5">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg><span class="sr-only">Toggle navigation menu</span></button></header>
+            <main class="flex flex-1 flex-col bg-background">
+                <header
+                    class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+                    <h1 class="text-2xl font-bold tracking-tight">Dashboard</h1>
+                </header>
+                <div class="p-6">
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                            <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                                <div class="tracking-tight text-sm font-medium">Total Machines</div><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-truck h-4 w-4 text-muted-foreground">
+                                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                                    <path d="M15 18H9"></path>
+                                    <path
+                                        d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
+                                    </path>
+                                    <circle cx="17" cy="18" r="2"></circle>
+                                    <circle cx="7" cy="18" r="2"></circle>
+                                </svg>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <div class="text-2xl font-bold">3</div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                            <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                                <div class="tracking-tight text-sm font-medium">Total Parts</div><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-wrench h-4 w-4 text-muted-foreground">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <div class="text-2xl font-bold">4</div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                            <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                                <div class="tracking-tight text-sm font-medium">Total Quotes</div><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-file-text h-4 w-4 text-muted-foreground">
+                                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                    <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                    <path d="M10 9H8"></path>
+                                    <path d="M16 13H8"></path>
+                                    <path d="M16 17H8"></path>
+                                </svg>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <div class="text-2xl font-bold">3</div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                            <div class="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
+                                <div class="tracking-tight text-sm font-medium">Average Quote Price</div><span
+                                    class="text-muted-foreground text-lg font-bold">$</span>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <div class="text-2xl font-bold">$452.75</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold mb-4">Recent Quotes</h2>
+                        <header
+                            class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+                            <h1 class="text-2xl font-bold tracking-tight"></h1>
+                            <div class="ml-auto flex items-center gap-2"><button
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-circle-plus mr-2 h-4 w-4">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M8 12h8"></path>
+                                        <path d="M12 8v8"></path>
+                                    </svg>Add Quote</button></div>
+                        </header>
+                        <div class="p-6">
+                            <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                                <div class="p-6 pt-0">
+                                    <div class="relative w-full overflow-auto">
+                                        <table class="w-full caption-bottom text-sm">
+                                            <thead class="[&amp;_tr]:border-b">
+                                                <tr
+                                                    class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                                    <th
+                                                        class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                        Part Name</th>
+                                                    <th
+                                                        class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                        Ref Code</th>
+                                                    <th
+                                                        class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                        Supplier</th>
+                                                    <th
+                                                        class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                        Date</th>
+                                                    <th
+                                                        class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                        User</th>
+                                                    <th
+                                                        class="h-12 px-4 align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        Price</th>
+                                                    <th
+                                                        class="h-12 px-4 align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[100px] text-right">
+                                                        Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="[&amp;_tr:last-child]:border-0">
+                                                <tr
+                                                    class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                                                        Engine Oil Filter</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        EOF-JD9R-001</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        Supplier C</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        October 3, 2023</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Alice
+                                                    </td>
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        $52.50</td>
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        <button
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-square-pen h-4 w-4">
+                                                                <path
+                                                                    d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                                </path>
+                                                                <path
+                                                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                                                </path>
+                                                            </svg></button><button
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-trash2 h-4 w-4 text-destructive">
+                                                                <path d="M3 6h18"></path>
+                                                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                                                <line x1="10" x2="10" y1="11" y2="17"></line>
+                                                                <line x1="14" x2="14" y1="11" y2="17"></line>
+                                                            </svg></button></td>
+                                                </tr>
+                                                <tr
+                                                    class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                                                        Hydraulic Pump</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        HP-CIHS-002</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        Supplier B</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        October 2, 2023</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Bob
+                                                    </td>
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        $1,250.75</td>
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        <button
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-square-pen h-4 w-4">
+                                                                <path
+                                                                    d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                                </path>
+                                                                <path
+                                                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                                                </path>
+                                                            </svg></button><button
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-trash2 h-4 w-4 text-destructive">
+                                                                <path d="M3 6h18"></path>
+                                                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                                                <line x1="10" x2="10" y1="11" y2="17"></line>
+                                                                <line x1="14" x2="14" y1="11" y2="17"></line>
+                                                            </svg></button></td>
+                                                </tr>
+                                                <tr
+                                                    class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                                                        Engine Oil Filter</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        EOF-JD9R-001</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        Supplier A</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                                        October 1, 2023</td>
+                                                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Alice
+                                                    </td>
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        $55.00</td>
+                                                    <td
+                                                        class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                                        <button
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-square-pen h-4 w-4">
+                                                                <path
+                                                                    d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                                </path>
+                                                                <path
+                                                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                                                </path>
+                                                            </svg></button><button
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-trash2 h-4 w-4 text-destructive">
+                                                                <path d="M3 6h18"></path>
+                                                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                                                <line x1="10" x2="10" y1="11" y2="17"></line>
+                                                                <line x1="14" x2="14" y1="11" y2="17"></line>
+                                                            </svg></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div><!--$--><!--/$--><!--$--><!--/$-->
+    <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none">
+        <ol tabindex="-1"
+            class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+        </ol>
+    </div>
+    <script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js"
+        async=""></script>
+    <script>(self.__next_f = self.__next_f || []).push([0])</script>
+    <script>self.__next_f.push([1, "3:\"$Sreact.fragment\"\n5:I[\"[project]/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"default\"]\n6:I[\"[project]/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"default\"]\nb:I[\"[project]/src/components/ui/toaster.tsx [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_3d823d1a._.js\",\"/_next/static/chunks/src_1246dabe._.js\",\"/_next/static/chunks/src_app_layout_tsx_c0237562._.js\"],\"Toaster\"]\n11:I[\"[project]/node_modules/next/dist/client/components/metadata/metadata-boundary.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"MetadataBoundary\"]\n14:I[\"[project]/node_modules/next/dist/client/components/metadata/metadata-boundary.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"OutletBoundary\"]\n1b:I[\"[project]/node_modules/next/dist/client/components/metadata/async-metadata.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"AsyncMetadataOutlet\"]\n21:I[\"[project]/node_modules/next/dist/client/components/metadata/metadata-boundary.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"ViewportBoundary\"]\n27:I[\"[project]/node_modules/next/dist/client/components/error-boundary.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"default\"]\n28:\"$Sreact.suspense\"\n29:I[\"[project]/node_modules"])</script>
+    <script>self.__next_f.push([1, "/next/dist/client/components/metadata/async-metadata.js [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_next_dist_1a6ee436._.js\",\"/_next/static/chunks/src_app_favicon_ico_mjs_8a7a8fdc._.js\"],\"AsyncMetadata\"]\n:HL[\"/_next/static/chunks/%5Broot-of-the-server%5D__a1dae339._.css\",\"style\"]\n:HL[\"/_next/static/media/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n2:{\"name\":\"Preloads\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{\"preloadCallbacks\":[\"$E(()=\u003e{ctx.componentMod.preloadStyle(fullHref,ctx.renderOpts.crossOrigin,ctx.nonce)})\",\"$E(()=\u003e{ctx.componentMod.preloadFont(href,type,ctx.renderOpts.crossOrigin,ctx.nonce)})\"]}}\n1:D\"$2\"\n1:null\n7:{\"name\":\"RootLayout\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$3\",null,{\"children\":[\"$\",\"$L6\",null,{},null,[],1]},null,[],0],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$Y\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"},null,[],1],\"params\":\"$Y\"}}\n4:D\"$7\"\n9:{\"name\":\"NotFound\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{}}\n8:D\"$9\"\na:{\"name\":\"HTTPAccessErrorFallback\",\"env\":\"Server\",\"key\":null,\"owner\":\"$9\",\"stack\":[],\"props\":{\"status\":404,\"message\":\"This page could not be found.\"}}\n8:D\"$a\"\n8:[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"},\"$a\",[],1],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#"])</script>
+    <script>self.__next_f.push([1, "000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}},\"$a\",[],1],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404},\"$a\",[],1],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"},\"$a\",[],1]},\"$a\",[],1]]},\"$a\",[],1]},\"$a\",[],1]]\n4:[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.googleapis.com\"},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__518491df._.js\",132,272]],1],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.gstatic.com\",\"crossOrigin\":\"anonymous\"},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__518491df._.js\",140,272]],1],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700\u0026display=swap\",\"rel\":\"stylesheet\"},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__518491df._.js\",149,272]],1]]},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__518491df._.js\",130,264]],1],[\"$\",\"body\",null,{\"className\":\"min-h-screen bg-background font-body antialiased inter_edb9147b-module__xWQRDW__variable\",\"children\":[[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{},null,[],1],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[\"$8\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"},null,[],1],[\"$\",\"$Lb\",null,{},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__518491df._.js\",167,272]],1]]},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/"])</script>
+    <script>self.__next_f.push([1, "ssr/[root-of-the-server]__518491df._.js\",163,264]],1]]},\"$7\",[[\"RootLayout\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__518491df._.js\",126,263]],1]\nd:{\"name\":\"DashboardPage\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{\"params\":\"$@\",\"searchParams\":\"$@\"}}\nc:D\"$d\"\nf:{\"name\":\"\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{}}\ne:D\"$f\"\n10:{\"name\":\"MetadataTree\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{}}\ne:D\"$10\"\n13:{\"name\":\"__next_metadata_boundary__\",\"env\":\"Server\",\"key\":null,\"owner\":\"$10\",\"stack\":[],\"props\":{}}\n12:D\"$13\"\ne:[\"$\",\"$L11\",null,{\"children\":\"$L12\"},\"$10\",[],1]\n16:{\"name\":\"__next_outlet_boundary__\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{\"ready\":\"$E(async function getViewportReady() {\\n        await viewport();\\n        return undefined;\\n    })\"}}\n15:D\"$16\"\n18:{\"name\":\"__next_outlet_boundary__\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{\"ready\":\"$E(async function getMetadataReady() {\\n        // Only warm up metadata() call when it's blocking metadata,\\n        // otherwise it will be fully managed by AsyncMetadata component.\\n        if (!serveStreamingMetadata) {\\n            await metadata();\\n        }\\n        return undefined;\\n    })\"}}\n17:D\"$18\"\n1a:{\"name\":\"StreamingMetadataOutlet\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{}}\n19:D\"$1a\"\n19:[\"$\",\"$L1b\",null,{\"promise\":\"$@1c\"},\"$1a\",[],1]\n1e:{\"name\":\"NonIndex\",\"env\":\"Server\",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{\"pagePath\":\"/\",\"statusCode\":200,\"isPossibleServerAction\":false}}\n1d:D\"$1e\"\n1d:null\n20:{\"name\":\"ViewportTree\",\"env\":\"Server\",\"key\":\"CoNHxcSFbF-ld6D7DsvPE\",\"owner\":null,\"stack\":[],\"props\":{}}\n1f:D\"$20\"\n23:{\"name\":\"__next_viewport_boundary__\",\"env\":\"Server\",\"key\":null,\"owner\":\"$20\",\"stack\":[],\"props\":{}}\n22:D\"$23\"\n1f:[\"$\",\"$3\",\"CoNHxcSFbF-ld6D7DsvPE\",{\"children\":[[\"$\",\"$L21\",null,{\"children\":\"$L22\"},\"$20\",[],1],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"},\"$20\",[],1]]},null,null,0]\n25:{\"name\":\"\",\"env\":\"Server\""])</script>
+    <script>self.__next_f.push([1, ",\"key\":null,\"owner\":null,\"stack\":[],\"props\":{}}\n24:D\"$25\"\n24:null\n26:[]\n0:{\"P\":\"$1\",\"b\":\"development\",\"p\":\"\",\"c\":[\"\",\"?embedded=0\u0026monospaceUid=961022\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__?{\\\"embedded\\\":\\\"0\\\",\\\"monospaceUid\\\":\\\"961022\\\"}\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$3\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/%5Broot-of-the-server%5D__a1dae339._.css\",\"precedence\":\"next_static/chunks/[root-of-the-server]__a1dae339._.css\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"},null,[],0],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/node_modules_3d823d1a._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,[],0],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/src_1246dabe._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,[],0],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/src_app_layout_tsx_c0237562._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,[],0]],\"$4\"]},null,[],0],{\"children\":[\"__PAGE__\",[\"$\",\"$3\",\"c\",{\"children\":[\"$Lc\",\"$e\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/src_1e1de579._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,[],0],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/node_modules_07d20f91._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,[],0],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/src_app_page_tsx_1e05c33a._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,[],0]],[\"$\",\"$L14\",null,{\"children\":[\"$L15\",\"$L17\",\"$19\"]},null,[],1]]},null,[],0],{},null,false]},null,false],[\"$\",\"$3\",\"h\",{\"children\":[\"$1d\",\"$1f\",\"$24\"]},null,[],0],false]],\"m\":\"$W26\",\"G\":[\"$27\",\"$undefined\"],\"s\":false,\"S\":false}\n12:[\"$\",\"$28\",null,{\"fallback\":null,\"children\":[\"$\",\"$L29\",null,{\"promise\":\"$@2a\"},\"$13\",[],1]},\"$13\",[],1]\n17:null\n22:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"},\"$16\",[],0],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},\"$16\",[],0]]\n15:null\n"])</script>
+    <script>self.__next_f.push([1, "2a:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"TractorQuote\"},\"$13\",[],0],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Manage quotes for tractor parts\"},\"$13\",[],0],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/favicon.ico?favicon.56766c03.ico\",\"sizes\":\"48x48\",\"type\":\"image/x-icon\"},\"$13\",[],0]],\"error\":null,\"digest\":\"$undefined\"}\n1c:{\"metadata\":\"$2a:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script>
+    <script>self.__next_f.push([1, "2b:I[\"[project]/src/components/main-layout.tsx [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_3d823d1a._.js\",\"/_next/static/chunks/src_1246dabe._.js\",\"/_next/static/chunks/src_app_layout_tsx_c0237562._.js\",\"/_next/static/chunks/src_1e1de579._.js\",\"/_next/static/chunks/node_modules_07d20f91._.js\",\"/_next/static/chunks/src_app_page_tsx_1e05c33a._.js\"],\"MainLayout\"]\n31:\"$Sreact.forward_ref\"\n32:\"$Sreact.forward_ref\"\n35:\"$Sreact.forward_ref\"\n36:\"$Sreact.forward_ref\"\n40:\"$Sreact.forward_ref\"\n41:\"$Sreact.forward_ref\"\n44:\"$Sreact.forward_ref\"\n45:\"$Sreact.forward_ref\"\n4f:\"$Sreact.forward_ref\"\n50:\"$Sreact.forward_ref\"\n53:\"$Sreact.forward_ref\"\n54:\"$Sreact.forward_ref\"\n5e:\"$Sreact.forward_ref\"\n5f:\"$Sreact.forward_ref\"\n62:\"$Sreact.forward_ref\"\n68:I[\"[project]/src/components/quotes/quotes-client-page.tsx [app-client] (ecmascript)\",[\"/_next/static/chunks/node_modules_3d823d1a._.js\",\"/_next/static/chunks/src_1246dabe._.js\",\"/_next/static/chunks/src_app_layout_tsx_c0237562._.js\",\"/_next/static/chunks/src_1e1de579._.js\",\"/_next/static/chunks/node_modules_07d20f91._.js\",\"/_next/static/chunks/src_app_page_tsx_1e05c33a._.js\"],\"default\"]\n2d:{\"name\":\"PageHeader\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1231,264]],\"props\":{\"children\":[\"$\",\"$E(function PageHeaderTitle({ children, className }) {\\n    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"h1\\\", {\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-bold tracking-tight\\\", className),\\n        children: children\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/page-header.tsx\\\",\\n        lineNumber: 25,\\n        columnNum"])</script>
+    <script>self.__next_f.push([1, "ber: 9\\n    }, this);\\n})\",null,{\"children\":\"Dashboard\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1232,278]],1]}}\n2c:D\"$2d\"\n2f:{\"name\":\"PageHeaderTitle\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1232,278]],\"props\":{\"children\":\"Dashboard\"}}\n2e:D\"$2f\"\n2e:[\"$\",\"h1\",null,{\"className\":\"text-2xl font-bold tracking-tight\",\"children\":\"Dashboard\"},\"$2f\",[[\"PageHeaderTitle\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1055,263]],1]\n2c:[\"$\",\"header\",null,{\"className\":\"sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6\",\"children\":\"$2e\"},\"$2d\",[[\"PageHeader\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1045,263]],1]\n"])</script>
+    <script>self.__next_f.push([1, "33:{\"name\":\"Card\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1250,280]],\"props\":{\"children\":[[\"$\",{\"$$typeof\":\"$31\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"flex flex-col space-y-1.5 p-6\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 24,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$32\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Total Machines\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1255,296]],1],\"$Y\"]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1252,288]],1],\"$Y\"]}}\n"])</script>
+    <script>self.__next_f.push([1, "30:D\"$33\"\n"])</script>
+    <script>self.__next_f.push([1, "37:{\"name\":\"CardHeader\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1252,288]],\"props\":{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$35\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Total Machines\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1255,296]],1],[\"$\",{\"$$typeof\":\"$36\",\"render\":\"$E(({ className, ...props }, ref)=\u003e(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"createElement\\\"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$Icon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"default\\\"], {\\n            ref,\\n            iconNode,\\n            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$shared$2f$src$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"mergeClasses\\\"])(`lucide-${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$shared$2f$src$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"toKebabCase\\\"])(iconName)}`, className),\\n            ...props\\n        }))\"},null,{\"className\":\"h-4 w-4 text-muted-foreground\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1263,296]],1]]}}\n"])</script>
+    <script>self.__next_f.push([1, "34:D\"$37\"\n39:{\"name\":\"CardTitle\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1255,296]],\"props\":{\"className\":\"text-sm font-medium\",\"children\":\"Total Machines\"}}\n38:D\"$39\"\n38:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"tracking-tight text-sm font-medium\",\"children\":\"Total Machines\"},\"$39\",[[\"CardTitle\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1114,533]],1]\n3b:{\"name\":\"Truck\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1263,296]],\"props\":{\"className\":\"h-4 w-4 text-muted-foreground\"}}\n3a:D\"$3b\"\n3c:{\"name\":\"\",\"env\":\"Server\",\"key\":null,\"owner\":\"$3b\",\"stack\":[],\"props\":{\"ref\":\"$undefined\",\"iconNode\":[[\"path\",{\"d\":\"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2\",\"key\":\"wrbu53\"}],[\"path\",{\"d\":\"M15 18H9\",\"key\":\"1lyqi6\"}],[\"path\",{\"d\":\"M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14\",\"key\":\"lysw3i\"}],\"$Y\",\"$Y\"],\"className\":\"lucide-truck h-4 w-4 text-muted-foreground\"}}\n3a:D\"$3c\"\n3a:[\"$\",\"svg\",null,{\"ref\":\"$undefined\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"width\":24,\"height\":24,\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":2,\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"className\":\"lucide lucide-truck h-4 w-4 text-muted-foreground\",\"children\":[[\"$\",\"path\",\"wrbu53\",{\"d\":\"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2\"},\"$3c\",[],0],[\"$\",\"path\",\"1lyqi6\",{\"d\":\"M15 18H9\"},\"$3c\",[],0],[\"$\",\"path\",\"lysw3i\",{\"d\":\"M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14\"},\"$3c\",[],0],[\"$\",\"circle\",\"332jqn\",{\"cx\":\"17\",\"cy\":\"18\",\"r\":\"2\"},\"$3c\",[],0],[\"$\",\"circle\",\"19iecd\",{\"cx\":\"7\",\"cy\":\"18\",\"r\":\"2\"},\"$3c\",[],0],\"$undefined\"]},\"$3c\",[],1]\n34:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[\"$38\",\"$3a\"]},\"$37\",[[\"C"])</script>
+    <script>self.__next_f.push([1, "ardHeader\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1104,534]],1]\n3e:{\"name\":\"CardContent\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1276,288]],\"props\":{\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":3},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1277,302]],1]}}\n3d:D\"$3e\"\n3d:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 pt-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":3},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1277,302]],1]},\"$3e\",[[\"CardContent\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1134,535]],1]\n30:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"rounded-lg border bg-card text-card-foreground shadow-sm\",\"children\":[\"$34\",\"$3d\"]},\"$33\",[[\"Card\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1094,528]],1]\n"])</script>
+    <script>self.__next_f.push([1, "42:{\"name\":\"Card\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1296,280]],\"props\":{\"children\":[[\"$\",{\"$$typeof\":\"$40\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"flex flex-col space-y-1.5 p-6\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 24,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$41\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Total Parts\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1301,296]],1],\"$Y\"]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1298,288]],1],\"$Y\"]}}\n"])</script>
+    <script>self.__next_f.push([1, "3f:D\"$42\"\n"])</script>
+    <script>self.__next_f.push([1, "46:{\"name\":\"CardHeader\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1298,288]],\"props\":{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$44\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Total Parts\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1301,296]],1],[\"$\",{\"$$typeof\":\"$45\",\"render\":\"$E(({ className, ...props }, ref)=\u003e(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"createElement\\\"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$Icon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"default\\\"], {\\n            ref,\\n            iconNode,\\n            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$shared$2f$src$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"mergeClasses\\\"])(`lucide-${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$shared$2f$src$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"toKebabCase\\\"])(iconName)}`, className),\\n            ...props\\n        }))\"},null,{\"className\":\"h-4 w-4 text-muted-foreground\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1309,296]],1]]}}\n"])</script>
+    <script>self.__next_f.push([1, "43:D\"$46\"\n48:{\"name\":\"CardTitle\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1301,296]],\"props\":{\"className\":\"text-sm font-medium\",\"children\":\"Total Parts\"}}\n47:D\"$48\"\n47:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"tracking-tight text-sm font-medium\",\"children\":\"Total Parts\"},\"$48\",[[\"CardTitle\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1114,533]],1]\n4a:{\"name\":\"Wrench\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1309,296]],\"props\":{\"className\":\"h-4 w-4 text-muted-foreground\"}}\n49:D\"$4a\"\n4b:{\"name\":\"\",\"env\":\"Server\",\"key\":null,\"owner\":\"$4a\",\"stack\":[],\"props\":{\"ref\":\"$undefined\",\"iconNode\":[[\"path\",{\"d\":\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\",\"key\":\"cbrjhi\"}]],\"className\":\"lucide-wrench h-4 w-4 text-muted-foreground\"}}\n49:D\"$4b\"\n49:[\"$\",\"svg\",null,{\"ref\":\"$undefined\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"width\":24,\"height\":24,\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":2,\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"className\":\"lucide lucide-wrench h-4 w-4 text-muted-foreground\",\"children\":[[\"$\",\"path\",\"cbrjhi\",{\"d\":\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\"},\"$4b\",[],0],\"$undefined\"]},\"$4b\",[],1]\n43:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[\"$47\",\"$49\"]},\"$46\",[[\"CardHeader\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1104,534]],1]\n4d:{\"name\":\"CardContent\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1"])</script>
+    <script>self.__next_f.push([1, "322,288]],\"props\":{\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":4},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1323,302]],1]}}\n4c:D\"$4d\"\n4c:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 pt-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":4},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1323,302]],1]},\"$4d\",[[\"CardContent\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1134,535]],1]\n3f:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"rounded-lg border bg-card text-card-foreground shadow-sm\",\"children\":[\"$43\",\"$4c\"]},\"$42\",[[\"Card\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1094,528]],1]\n"])</script>
+    <script>self.__next_f.push([1, "51:{\"name\":\"Card\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1342,280]],\"props\":{\"children\":[[\"$\",{\"$$typeof\":\"$4f\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"flex flex-col space-y-1.5 p-6\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 24,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$50\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Total Quotes\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1347,296]],1],\"$Y\"]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1344,288]],1],\"$Y\"]}}\n"])</script>
+    <script>self.__next_f.push([1, "4e:D\"$51\"\n"])</script>
+    <script>self.__next_f.push([1, "55:{\"name\":\"CardHeader\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1344,288]],\"props\":{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$53\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Total Quotes\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1347,296]],1],[\"$\",{\"$$typeof\":\"$54\",\"render\":\"$E(({ className, ...props }, ref)=\u003e(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"createElement\\\"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$Icon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"default\\\"], {\\n            ref,\\n            iconNode,\\n            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$shared$2f$src$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"mergeClasses\\\"])(`lucide-${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$shared$2f$src$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"toKebabCase\\\"])(iconName)}`, className),\\n            ...props\\n        }))\"},null,{\"className\":\"h-4 w-4 text-muted-foreground\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1355,296]],1]]}}\n"])</script>
+    <script>self.__next_f.push([1, "52:D\"$55\"\n57:{\"name\":\"CardTitle\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1347,296]],\"props\":{\"className\":\"text-sm font-medium\",\"children\":\"Total Quotes\"}}\n56:D\"$57\"\n56:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"tracking-tight text-sm font-medium\",\"children\":\"Total Quotes\"},\"$57\",[[\"CardTitle\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1114,533]],1]\n59:{\"name\":\"FileText\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1355,296]],\"props\":{\"className\":\"h-4 w-4 text-muted-foreground\"}}\n58:D\"$59\"\n5a:{\"name\":\"\",\"env\":\"Server\",\"key\":null,\"owner\":\"$59\",\"stack\":[],\"props\":{\"ref\":\"$undefined\",\"iconNode\":[[\"path\",{\"d\":\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\",\"key\":\"1rqfz7\"}],[\"path\",{\"d\":\"M14 2v4a2 2 0 0 0 2 2h4\",\"key\":\"tnqrlb\"}],[\"path\",{\"d\":\"M10 9H8\",\"key\":\"b1mrlr\"}],\"$Y\",\"$Y\"],\"className\":\"lucide-file-text h-4 w-4 text-muted-foreground\"}}\n58:D\"$5a\"\n58:[\"$\",\"svg\",null,{\"ref\":\"$undefined\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"width\":24,\"height\":24,\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":2,\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"className\":\"lucide lucide-file-text h-4 w-4 text-muted-foreground\",\"children\":[[\"$\",\"path\",\"1rqfz7\",{\"d\":\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"},\"$5a\",[],0],[\"$\",\"path\",\"tnqrlb\",{\"d\":\"M14 2v4a2 2 0 0 0 2 2h4\"},\"$5a\",[],0],[\"$\",\"path\",\"b1mrlr\",{\"d\":\"M10 9H8\"},\"$5a\",[],0],[\"$\",\"path\",\"t4e002\",{\"d\":\"M16 13H8\"},\"$5a\",[],0],[\"$\",\"path\",\"z1uh3a\",{\"d\":\"M16 17H8\"},\"$5a\",[],0],\"$undefined\"]},\"$5a\",[],1]\n52:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[\"$56\",\"$58\"]},\"$55\",[[\"CardHeader\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1104,534]],1]\n5c:{\"name\":\"CardContent\",\"env"])</script>
+    <script>self.__next_f.push([1, "\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1368,288]],\"props\":{\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":3},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1369,302]],1]}}\n5b:D\"$5c\"\n5b:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 pt-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":3},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1369,302]],1]},\"$5c\",[[\"CardContent\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1134,535]],1]\n4e:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"rounded-lg border bg-card text-card-foreground shadow-sm\",\"children\":[\"$52\",\"$5b\"]},\"$51\",[[\"Card\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1094,528]],1]\n"])</script>
+    <script>self.__next_f.push([1, "60:{\"name\":\"Card\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1388,280]],\"props\":{\"children\":[[\"$\",{\"$$typeof\":\"$5e\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"flex flex-col space-y-1.5 p-6\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 24,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$5f\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Average Quote Price\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1393,296]],1],\"$Y\"]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1390,288]],1],\"$Y\"]}}\n"])</script>
+    <script>self.__next_f.push([1, "5d:D\"$60\"\n63:{\"name\":\"CardHeader\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1390,288]],\"props\":{\"className\":\"flex flex-row items-center justify-between space-y-0 pb-2\",\"children\":[[\"$\",{\"$$typeof\":\"$62\",\"render\":\"$E(({ className, ...props }, ref)=\u003e/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"jsxDEV\\\"])(\\\"div\\\", {\\n        ref: ref,\\n        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\\\"cn\\\"])(\\\"text-2xl font-semibold leading-none tracking-tight\\\", className),\\n        ...props\\n    }, void 0, false, {\\n        fileName: \\\"[project]/src/components/ui/card.tsx\\\",\\n        lineNumber: 36,\\n        columnNumber: 3\\n    }, this))\"},null,{\"className\":\"text-sm font-medium\",\"children\":\"Average Quote Price\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1393,296]],1],[\"$\",\"span\",null,{\"className\":\"text-muted-foreground text-lg font-bold\",\"children\":\"$$\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1401,296]],1]]}}\n61:D\"$63\"\n65:{\"name\":\"CardTitle\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1393,296]],\"props\":{\"className\":\"text-sm font-medium\",\"children\":\"Average Quote Price\"}}\n64:D\"$65\"\n64:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"tracking-tight text-sm font-medium\",\"children\":\"Average Quote Price\"},\"$65\",[[\"CardTitle\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1114,533]],1]\n61:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 flex flex-row items-center justify-between space-y-0 pb-"])</script>
+    <script>self.__next_f.push([1, "2\",\"children\":[\"$64\",[\"$\",\"span\",null,{\"className\":\"text-muted-foreground text-lg font-bold\",\"children\":\"$$\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1401,296]],1]]},\"$63\",[[\"CardHeader\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1104,534]],1]\n67:{\"name\":\"CardContent\",\"env\":\"Server\",\"key\":null,\"owner\":\"$d\",\"stack\":[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1415,288]],\"props\":{\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":\"$$452.75\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1416,302]],1]}}\n66:D\"$67\"\n66:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"p-6 pt-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"text-2xl font-bold\",\"children\":\"$$452.75\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1416,302]],1]},\"$67\",[[\"CardContent\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1134,535]],1]\n5d:[\"$\",\"div\",null,{\"ref\":\"$undefined\",\"className\":\"rounded-lg border bg-card text-card-foreground shadow-sm\",\"children\":[\"$61\",\"$66\"]},\"$60\",[[\"Card\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1094,528]],1]\n"])</script>
+    <script>self.__next_f.push([1, "c:[\"$\",\"$L2b\",null,{\"children\":[\"$2c\",[\"$\",\"div\",null,{\"className\":\"p-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"grid gap-6 md:grid-cols-2 lg:grid-cols-4\",\"children\":[\"$30\",\"$3f\",\"$4e\",\"$5d\"]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1247,272]],1],[\"$\",\"div\",null,{\"className\":\"mt-8\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-xl font-semibold mb-4\",\"children\":\"Recent Quotes\"},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1444,280]],1],[\"$\",\"$L68\",null,{\"initialQuotes\":[{\"id\":\"q3\",\"partId\":\"p1\",\"supplierName\":\"Supplier C\",\"quoteDate\":\"2023-10-03T14:00:00Z\",\"price\":52.5,\"submittedBy\":\"Alice\",\"createdAt\":\"2023-10-03T14:00:00Z\",\"updatedAt\":\"2023-10-03T14:00:00Z\",\"part\":{\"id\":\"p1\",\"name\":\"Engine Oil Filter\",\"referenceCode\":\"EOF-JD9R-001\",\"machineId\":\"m1\"},\"machine\":{\"id\":\"m1\",\"name\":\"John Deere 9R Series\"},\"history\":[]},{\"id\":\"q2\",\"partId\":\"p2\",\"supplierName\":\"Supplier B\",\"quoteDate\":\"2023-10-02T11:30:00Z\",\"price\":1250.75,\"submittedBy\":\"Bob\",\"createdAt\":\"2023-10-02T11:30:00Z\",\"updatedAt\":\"2023-10-02T11:30:00Z\",\"part\":{\"id\":\"p2\",\"name\":\"Hydraulic Pump\",\"referenceCode\":\"HP-CIHS-002\",\"machineId\":\"m2\"},\"machine\":{\"id\":\"m2\",\"name\":\"Case IH Steiger\"},\"history\":[]},{\"id\":\"q1\",\"partId\":\"p1\",\"supplierName\":\"Supplier A\",\"quoteDate\":\"2023-10-01T10:00:00Z\",\"price\":55,\"submittedBy\":\"Alice\",\"createdAt\":\"2023-10-01T10:00:00Z\",\"updatedAt\":\"2023-10-01T10:00:00Z\",\"part\":\"$c:props:children:1:props:children:1:props:children:1:props:initialQuotes:0:part\",\"machine\":\"$c:props:children:1:props:children:1:props:children:1:props:initialQuotes:0:machine\",\"history\":[]}],\"parts\":[\"$c:props:children:1:props:children:1:props:children:1:props:initialQuotes:0:part\",\"$c:props:children:1:props:children:1:props:children:1:props:initialQuotes:1:part\",{\"id\":\"p3\",\"name\":\"Air Filter\",\"referenceCode\":\"AF-NHT9-003\",\"machineId\":\"m3\"},{\"id\":\"p4\",\"name\":\"Transmission Belt\",\"referenceCode\":\"TB-JD9R-004\",\"machineId\":\"m1\"}],\"machines\":[\"$c:props:children:1:props:children:1:props:children:1:props:initialQuotes:0:machine\",\"$c:props:children:1:props:children:1:props:children:1:props:initialQuotes:1:machine\",{\"id\":\"m3\",\"name\":\"New Holland T9\"}],\"hideFilters\":true},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1452,280]],1]]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1441,272]],1]]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1244,264]],1]]},\"$d\",[[\"DashboardPage\",\"/home/user/studio/.next/server/chunks/ssr/[root-of-the-server]__ee0452b3._.js\",1229,263]],1]\n"])</script>
+    <next-route-announcer style="position: absolute;"></next-route-announcer><nextjs-portal
+        class="dark"></nextjs-portal>
+    <script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_61dcf9ba._.js"></script>
+    <script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_66796270._.js"></script>
+    <script src="/_next/static/chunks/src_6a0e5054._.js"></script>
+    <script src="/_next/static/chunks/node_modules_f70373d7._.js"></script>
+    <script src="/_next/static/chunks/src_app_parts_page_tsx_1e05c33a._.js"></script>
+    <script src="/_next/static/chunks/src_app_quotes_page_tsx_1e05c33a._.js"></script>
+    <script src="/_next/static/chunks/src_8eacaf12._.js"></script>
+    <script src="/_next/static/chunks/node_modules_bbfb5f03._.js"></script>
+    <script src="/_next/static/chunks/src_app_machines_page_tsx_1e05c33a._.js"></script>
+</body>
+
+</html>
