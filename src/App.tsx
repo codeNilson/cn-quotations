@@ -1,27 +1,9 @@
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { faCircleCheck, faCirclePlus, faCircleXmark, faClock, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus, faCircleCheck, faCircleXmark, faScrewdriverWrench, faClock } from "@fortawesome/free-solid-svg-icons";
-import Table from "./components/Table";
-import Card from "./components/Card";
+import Card from "./components/Card.tsx";
+import Table from "./components/Table.tsx";
 
 function App() {
-
-  const handleSubmit = async () => {
-    const name = "Denilson"
-    const docRef = doc(db, "users", name);
-
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-      return
-    }
-
-    await setDoc(docRef, {
-      name: name,
-      createdAt: new Date()
-    })
-  }
 
   return (
     <div className="p-5 bg-gray-100 min-h-screen">

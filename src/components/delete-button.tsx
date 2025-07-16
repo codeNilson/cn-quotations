@@ -2,22 +2,21 @@ import { useState, useEffect } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function DeleteButton() {
-  const [open, setOpen] = useState(false);
-  const [show, setShow] = useState(false);
+import React from "react";
 
-  // Quando abrir, monta o modal e com um delay curto ativa open
+export default function DeleteButton(): React.JSX.Element {
+  const [open, setOpen] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
+
   useEffect(() => {
     if (open) {
       setShow(true);
     } else {
-      // fecha animado, desmonta depois
       const timeout = setTimeout(() => setShow(false), 200);
       return () => clearTimeout(timeout);
     }
   }, [open]);
 
-  // Força open só após modal estar montado
   useEffect(() => {
     if (show) {
       const timer = setTimeout(() => setOpen(true), 10);
@@ -25,8 +24,7 @@ export default function DeleteButton() {
     }
   }, [show]);
 
-  // Botão fechar (desativa open, que vai iniciar saída)
-  const close = () => {
+  const close = (): void => {
     setOpen(false);
   };
 
