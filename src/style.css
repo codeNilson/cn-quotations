@@ -9,7 +9,7 @@
 }
 
 .btn-icon {
-    @apply hover:bg-orange-600
+    @apply hover:bg-orange-500
 }
 
 .icon-edit {
