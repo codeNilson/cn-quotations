@@ -2,13 +2,14 @@ import { faCircleCheck, faCirclePlus, faCircleXmark, faClock, faScrewdriverWrenc
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card.tsx";
 import Table from "./components/Table.tsx";
+import Sidebar from "./components/Sidebar.tsx"
 
 function App() {
 
   return (
-    <div className="p-5 bg-gray-100 min-h-screen">
-      <aside></aside>
-      <main className="">
+    <div className="bg-gray-100 min-h-screen gap-3 flex">
+      <Sidebar />
+      <main className="w-full">
         <div className="cards-container">
           <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-5 mt-5">
