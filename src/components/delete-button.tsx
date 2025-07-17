@@ -36,7 +36,7 @@ export default function DeleteButton(): React.JSX.Element {
 
       {show && (
         <div
-          className={`fixed inset-0 flex items-center justify-center bg-black/75 transition-opacity duration-200 z-50 ${
+          className={`fixed inset-0 flex items-center p-3 justify-center bg-black/75 transition-opacity duration-200 z-50 ${
             open ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           role="dialog"
