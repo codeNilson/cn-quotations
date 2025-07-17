@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import SidebarContext from "../context/SidebarContext.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCogs, faFile, faTableColumns, faTruck } from "@fortawesome/free-solid-svg-icons";
+import logo from "../assets/logo.png";
 
 
 
@@ -47,7 +48,7 @@ export default function Sidebar() {
             )}
             <aside className={`w-65 h-screen bg-gray-50 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
                 <div className="border-b-2 p-3 border-gray-100">
-                    <img src="src/assets/logo.png" alt="" />
+                    <img src={logo} alt="" />
                 </div>
                 <div>
                     <nav>
