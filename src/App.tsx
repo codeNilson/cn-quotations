@@ -54,8 +54,8 @@ function App() {
           <div className="flex justify-between items-center p-3 mt-5">
             <h4 className="font-bold text-2xl tracking-tight">Cotações recentes</h4>
             <button className="btn btn-primary text-white flex items-center gap-3">
-              <FontAwesomeIcon icon={faCirclePlus} />
-              Nova Cotação
+              <FontAwesomeIcon icon={faCirclePlus} className="text-2xl md:text-md" />
+              <p className="hidden md:block whitespace-nowrap">Nova Cotação</p>
             </button>
           </div>
           <div className="overflow-x-auto shadow-md">
