@@ -1,8 +1,12 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-html * {
+html {
     @apply dark:text-white;
+}
+
+html * {
+    @apply transition duration-300;
 }
 
 .btn {
@@ -18,7 +22,7 @@ html * {
 }
 
 .icon-edit {
-    @apply text-gray-600;
+    @apply text-gray-600 dark:text-white;
 }
 
 .icon-delete {

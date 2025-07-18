@@ -39,7 +39,7 @@ export default function Sidebar() {
 
     return (
         <>
-            <aside className={`w-65 h-screen bg-gray-50 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
+            <aside className={`w-65 h-screen bg-gray-50 dark:bg-neutral-800 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
                 <div className="border-b-2 p-3 border-gray-100">
                     <img src={logo} alt="central nordeste logo" />
                 </div>
@@ -49,7 +49,7 @@ export default function Sidebar() {
                             {menuItems.map((item, index) => (
                                 <li key={index} className="text-lg md:text-sm text-gray-500">
                                     <button
-                                        className="btn w-full flex items-center gap-2 text-left hover:text-orange-600"
+                                        className="btn w-full flex items-center dark:text-white gap-2 text-left hover:text-orange-600"
                                     >
                                         <FontAwesomeIcon icon={item.icon} />
                                         <span>{item.label}</span>
