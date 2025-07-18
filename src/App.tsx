@@ -1,10 +1,11 @@
-import { faBars, faCircleCheck, faCirclePlus, faCircleXmark, faClock, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCircleCheck, faCirclePlus, faCircleXmark, faClock, faMoon, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import Card from "./components/Card.tsx";
 import Sidebar from "./components/Sidebar.tsx";
 import Table from "./components/Table.tsx";
 import SidebarContext from "./context/SidebarContext.tsx";
+import { useTheme } from "./hooks/theme-hook.tsx";
 
 function App() {
 
@@ -14,17 +15,26 @@ function App() {
     throw new Error("SidebarContext is not provided");
   }
 
-  const { toggle } = context;
+  const { isOpen, toggle } = context;
+
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="bg-gray-100 min-h-screen gap-3 flex">
+    <div className="bg-gray-100 dark:bg-neutral-900 min-h-screen gap-3 flex">
       <Sidebar />
-      <main className="w-full">
+      <main className={`w-full transition duration-300 ${isOpen ? 'blur-xs' : 'ml-0'} lg:ml-0`} onClick={isOpen ? toggle : undefined}>
         <div className="cards-container py-3 flex flex-wrap items-center p-5">
           <button className="btn lg:hidden w-auto" onClick={toggle}>
-            <FontAwesomeIcon icon={faBars} size="lg" />
+            <FontAwesomeIcon icon={faBars} size="lg" style={{ color: theme === 'dark' ? 'white' : 'black' }} />
           </button>
-          <h2 className="text-2xl font-bold tracking-tight flex-1">Dashboard</h2>
+          <h2 className="text-2xl font-bold tracking-tight flex-1 dark:text-white">Dashboard</h2>
+          <button>
+            <FontAwesomeIcon
+              icon={faMoon}
+              className="text-2xl"
+              onClick={toggleTheme}
+            />
+          </button>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
             <Card>
               <div className="flex justify-between items-center">

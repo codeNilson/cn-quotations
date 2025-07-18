@@ -5,7 +5,6 @@ import { faCogs, faFile, faTableColumns, faTruck } from "@fortawesome/free-solid
 import logo from "../assets/logo.png";
 
 
-
 export default function Sidebar() {
     const context = useContext(SidebarContext)
 
@@ -13,7 +12,7 @@ export default function Sidebar() {
         throw new Error("SidebarContext is not provided");
     }
 
-    const { isOpen, toggle } = context;
+    const { isOpen } = context;
 
     // Array com os itens do menu
     const menuItems = [
@@ -40,12 +39,6 @@ export default function Sidebar() {
 
     return (
         <>
-            {isOpen && (
-                <div
-                    className="fixed inset-0 bg-black/40 z-40 lg:hidden"
-                    onClick={toggle}
-                />
-            )}
             <aside className={`w-65 h-screen bg-gray-50 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
                 <div className="border-b-2 p-3 border-gray-100">
                     <img src={logo} alt="" />
