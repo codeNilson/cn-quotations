@@ -33,7 +33,7 @@ const data = [
 
 export default function Table(): React.JSX.Element {
     return (
-        <table className="table-auto border border-gray-200 w-full bg-white rounded-lg overflow-hidden">
+        <table className="table-auto border border-gray-200 w-full bg-white dark:bg-neutral-800 rounded-lg overflow-hidden">
             <thead>
                 <tr>
                     <th className="p-3">Peça</th>
@@ -47,7 +47,7 @@ export default function Table(): React.JSX.Element {
             </thead>
             <tbody>
                 {data.map((item, idx) => (
-                    <tr key={idx} className="odd:bg-gray-50 even:bg-white hover:bg-orange-100 text-center">
+                    <tr key={idx} className="odd:bg-gray-50 dark:odd:bg-neutral-700 even:bg-white dark:even:bg-neutral-800 hover:bg-orange-100 text-center">
                         <td className="p-3">{item.peca}</td>
                         <td className="p-3">{item.referencia}</td>
                         <td className="p-3">{item.fornecedor}</td>

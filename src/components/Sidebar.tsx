@@ -41,7 +41,7 @@ export default function Sidebar() {
         <>
             <aside className={`w-65 h-screen bg-gray-50 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
                 <div className="border-b-2 p-3 border-gray-100">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="central nordeste logo" />
                 </div>
                 <div>
                     <nav>

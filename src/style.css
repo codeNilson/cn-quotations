@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+html * {
+    @apply dark:text-white;
+}
+
 .btn {
     @apply px-3 py-2 rounded cursor-pointer transition;
 }

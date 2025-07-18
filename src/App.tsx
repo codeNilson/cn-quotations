@@ -27,7 +27,7 @@ function App() {
           <button className="btn lg:hidden w-auto" onClick={toggle}>
             <FontAwesomeIcon icon={faBars} size="lg" style={{ color: theme === 'dark' ? 'white' : 'black' }} />
           </button>
-          <h2 className="text-2xl font-bold tracking-tight flex-1 dark:text-white">Dashboard</h2>
+          <h2 className="text-2xl font-bold tracking-tight flex-1">Dashboard</h2>
           <button>
             <FontAwesomeIcon
               icon={faMoon}
