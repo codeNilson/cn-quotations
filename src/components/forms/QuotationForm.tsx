@@ -22,6 +22,19 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
         console.log({ referencia, status, fornecedor, valor });
     };
 
+    const onPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+
+        const numbersOnly = value.replace(/\D/g, '');
+
+        const formatted = (Number(numbersOnly) / 100).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+
+        setValor(formatted);
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <h2>{mode === "create" ? "Criar Cotação" : "Editar Cotação"}</h2>
@@ -31,6 +44,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <h3>Referência</h3>
                     <input
                         type="text"
+                        required
                         value={referencia}
                         onChange={(e) => setReferencia(e.target.value)}
                         className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
@@ -56,6 +70,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <input
                         type="text"
                         value={fornecedor}
+                        required
                         onChange={(e) => setFornecedor(e.target.value)}
                         className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
                     />
@@ -66,14 +81,15 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <input
                         type="text"
                         value={valor}
-                        onChange={(e) => setValor(e.target.value)}
+                        required
+                        onChange={onPriceChange}
                         placeholder="R$ 0,00"
                         className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
                     />
                 </label>
             </div>
 
-            <div className="flex gap-2 mt-4">
+            <div className="flex justify-end gap-2 mt-4">
                 <button
                     type="button"
                     onClick={onCancel}
