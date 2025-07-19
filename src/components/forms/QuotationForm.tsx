@@ -37,9 +37,19 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>{mode === "create" ? "Criar Cotação" : "Editar Cotação"}</h2>
+            {mode === "create" ? (
+                <>
+                    <h2 className='form-title'>Criar Cotação</h2>
+                    <p className='form-description'>Informe os dados da nova cotação.</p>
+                </>
+            ) : (
+                <>
+                    <h2 className='form-title'>Editar Cotação</h2>
+                    <p className='form-description'>Atualize as informações desta cotação.</p>
+                </>
+            )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid mt-3 grid-cols-1 md:grid-cols-2 gap-4">
                 <label>
                     <h3>Referência</h3>
                     <input
@@ -47,7 +57,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                         required
                         value={referencia}
                         onChange={(e) => setReferencia(e.target.value)}
-                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
+                        className="form-input"
                     />
                 </label>
 
@@ -56,7 +66,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <select
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
-                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
+                        className="form-input"
                     >
                         <option value="">Selecione um status</option>
                         <option value="pending">Pendente</option>
@@ -72,7 +82,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                         value={fornecedor}
                         required
                         onChange={(e) => setFornecedor(e.target.value)}
-                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
+                        className="form-input"
                     />
                 </label>
 
@@ -84,7 +94,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                         required
                         onChange={onPriceChange}
                         placeholder="R$ 0,00"
-                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
+                        className="form-input"
                     />
                 </label>
             </div>
