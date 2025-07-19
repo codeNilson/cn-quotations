@@ -1,8 +1,5 @@
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteButton from './delete-button.tsx';
-
-import React from "react";
+import EditButton from "./edit-button.tsx";
 
 const data = [
     {
@@ -31,7 +28,7 @@ const data = [
     },
 ];
 
-export default function Table(): React.JSX.Element {
+export default function Table() {
     return (
         <table className="table-auto border border-gray-200 w-full bg-white dark:bg-neutral-800 rounded-lg overflow-hidden">
             <thead>
@@ -57,9 +54,7 @@ export default function Table(): React.JSX.Element {
                         <td className="p-3">
                             <div className="flex flex-col">
                                 <div>
-                                    <button className="btn btn-icon">
-                                        <FontAwesomeIcon icon={faPenToSquare} className="icon-edit" />
-                                    </button>
+                                    <EditButton />
                                 </div>
                                 <div>
                                     <DeleteButton />
