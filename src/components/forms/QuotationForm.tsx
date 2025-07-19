@@ -25,24 +25,24 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
     return (
         <form onSubmit={handleSubmit}>
             <h2>{mode === "create" ? "Criar Cotação" : "Editar Cotação"}</h2>
-            
-            <div className="grid grid-cols-2 gap-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <label>
                     <h3>Referência</h3>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         value={referencia}
                         onChange={(e) => setReferencia(e.target.value)}
-                        className="w-full border rounded-md px-2 py-1 bg-white dark:bg-neutral-800" 
+                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
                     />
                 </label>
-                
+
                 <label>
                     <h3>Status</h3>
-                    <select 
+                    <select
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
-                        className="w-full border rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
+                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
                     >
                         <option value="">Selecione um status</option>
                         <option value="pending">Pendente</option>
@@ -50,40 +50,40 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                         <option value="rejected">Rejeitada</option>
                     </select>
                 </label>
-                
+
                 <label>
                     <h3>Fornecedor</h3>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         value={fornecedor}
                         onChange={(e) => setFornecedor(e.target.value)}
-                        className="w-full border rounded-md px-2 py-1 bg-white dark:bg-neutral-800" 
+                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
                     />
                 </label>
-                
+
                 <label>
                     <h3>Valor</h3>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         value={valor}
                         onChange={(e) => setValor(e.target.value)}
                         placeholder="R$ 0,00"
-                        className="w-full border rounded-md px-2 py-1 bg-white dark:bg-neutral-800" 
+                        className="focus:outline-none focus:ring-2  focus:ring-orange-500 focus:border-orange-500 border border-gray-300 dark:border-neutral-600 rounded-md px-2 py-1 bg-white dark:bg-neutral-800"
                     />
                 </label>
             </div>
-            
+
             <div className="flex gap-2 mt-4">
-                <button 
-                    type="button" 
+                <button
+                    type="button"
                     onClick={onCancel}
-                    className="btn border"
+                    className="btn border border-gray-300 dark:border-neutral-600"
                 >
                     Cancelar
                 </button>
-                <button 
-                    type="submit" 
-                    className="btn btn-primary"
+                <button
+                    type="submit"
+                    className="btn btn-primary text-white"
                 >
                     {mode === "create" ? "Criar" : "Salvar"}
                 </button>
