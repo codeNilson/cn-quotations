@@ -60,7 +60,7 @@ function App() {
               </Card>
               <Card>
                 <div className="flex justify-between items-center">
-                  <span>Total de cotações (Mês)</span>
+                  <span>Total de Cotações (Mês)</span>
                   <FontAwesomeIcon icon={faScrewdriverWrench} className="text-red-800" />
                 </div>
                 <div>
