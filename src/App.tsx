@@ -26,7 +26,7 @@ function App() {
       <div className="bg-gray-100 dark:bg-neutral-900 min-h-screen gap-3 flex">
         <Sidebar />
         <main className={`w-full transition duration-300`} onClick={isOpen ? toggleSidebar : undefined}>
-          <div className="cards-container py-3 flex flex-wrap items-center p-5">
+          <div className="cards-container flex flex-wrap items-center px-5 py-2">
             <SidebarButton onToggleSidebar={toggleSidebar} />
             <h2 className="text-2xl font-bold tracking-tight flex-1">Dashboard</h2>
             <ThemeButton />
@@ -69,7 +69,7 @@ function App() {
               </Card>
             </div>
           </div>
-          <div className="p-">
+          <div className="px-5 py-2">
             <div className="flex justify-between items-center py-4">
               <h4 className="font-bold text-2xl tracking-tight">Cotações recentes</h4>
               <NewQuotationButton />
