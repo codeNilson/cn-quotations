@@ -25,7 +25,7 @@ function App() {
       <DetailsideBar />
       <div className="bg-gray-100 dark:bg-neutral-900 min-h-screen gap-3 flex">
         <Sidebar />
-        <main className={`w-full transition duration-300 ${isOpen ? 'blur-xs' : 'ml-0'} lg:ml-0`} onClick={isOpen ? toggleSidebar : undefined}>
+        <main className={`w-full transition duration-300`} onClick={isOpen ? toggleSidebar : undefined}>
           <div className="cards-container py-3 flex flex-wrap items-center p-5">
             <SidebarButton onToggleSidebar={toggleSidebar} />
             <h2 className="text-2xl font-bold tracking-tight flex-1">Dashboard</h2>
