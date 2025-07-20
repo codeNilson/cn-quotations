@@ -14,7 +14,7 @@ export default function DetailSidebar() {
     return (
         <div>
             {isOpen && <div className="fixed inset-0 bg-black/85 z-80" onClick={close} />}
-            <aside className={`fixed right-0 ${isOpen ? 'translate-x-0' : 'translate-x-full'} h-full w-auto md:w-2xl bg-gray-50 dark:bg-neutral-800 p-4 z-90`}>
+            <aside className={`fixed right-0 ${isOpen ? 'translate-x-0' : 'translate-x-full'} h-full w-auto md:w-3xl bg-gray-50 dark:bg-neutral-800 p-4 z-90`}>
                 {type === "quotation-create" && (
                     <QuotationForm mode="create" onCancel={close} />
                 )}
