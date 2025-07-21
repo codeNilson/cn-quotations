@@ -13,7 +13,7 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
         ...doc.data()
     }))
 
-    return await Promise.all(rawQuotations.map(async (quotation) => {
+    return Promise.all(rawQuotations.map(async (quotation) => {
         let part = null
         let createdBy = null
 

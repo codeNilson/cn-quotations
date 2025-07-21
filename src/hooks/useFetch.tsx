@@ -23,5 +23,5 @@ export function useFetch<T>(fetchFunction: () => Promise<T>) {
         load()
     },[])
 
-    return { loading, data, error, load }
+    return { loading, data, error, refetch:load }
 }

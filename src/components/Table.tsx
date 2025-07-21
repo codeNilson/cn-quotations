@@ -1,20 +1,13 @@
-import { useEffect, useState } from 'react'
-import type { QuotationResolved } from '../models/Quotation'
 import DeleteButton from './delete-button'
 import EditButton from './edit-button'
-import { fetchQuotations } from '../service/QuotationService'
+import { useQuotation } from '../hooks/useQuotation'
 
 
 export default function Table() {
-    const [data, setData] = useState<QuotationResolved[]>([])
 
-    useEffect(() => {
-        async function fetchData() {
-            const quotations = await fetchQuotations()
-            setData(quotations)
-        }
-        fetchData()
-    }, [])
+    const {data, loading, error, refetch} = useQuotation();
+
+    if (!data) return null;
 
     return (
         <table className="table-auto border border-gray-200 w-full bg-white dark:bg-neutral-800 rounded-lg overflow-hidden">
