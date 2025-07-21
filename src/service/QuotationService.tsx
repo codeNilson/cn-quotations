@@ -1,6 +1,6 @@
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
-import type { Quotation, QuotationResolved } from "../models/Quotation";
+import type { Quotation, QuotationCreateDTO, QuotationResolved } from "../models/Quotation";
 import { fetchPart } from "./PartService";
 import { fetchUser } from "./UserService";
 
@@ -43,10 +43,24 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
             part: part,
             supplier: quotation.supplier || '',
             createdBy: createdBy,
+            status: quotation.status || "Pendente",
             createdAt: quotation.createdAt
                 ? quotation.createdAt.toDate().toLocaleDateString()
                 : '',
             price: quotation.price || ''
         }
     }))
+}
+
+export async function createQuotation(quotation: QuotationCreateDTO) {
+    const newQuotation = {
+        part: doc(db, 'parts', quotation.reference),
+        supplier: quotation.supplier,
+        status: quotation.status,
+        price: quotation.price,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    };
+
+    await addDoc(collection(db, 'quotations'), newQuotation);
 }

@@ -1,12 +1,12 @@
-import DeleteButton from './delete-button'
-import EditButton from './edit-button'
-import { useQuotation } from '../hooks/useQuotation'
+import { useQuotation } from '../hooks/useQuotation';
+import DeleteButton from './delete-button';
+import EditButton from './edit-button';
 import TableSkeleton from './TableSkeleton';
 
 
 export default function Table() {
 
-    const {data, loading, error, refetch} = useQuotation();
+    const { data, loading} = useQuotation();
 
     if (loading) return <TableSkeleton />
     if (!data) return null;
@@ -21,6 +21,7 @@ export default function Table() {
                     <th className="p-3">Colaborador</th>
                     <th className="p-3">Criado em</th>
                     <th className="p-3">Preço</th>
+                    <th className="p-3">Status</th>
                     <th className="p-3">Ações</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@ export default function Table() {
                         <td className="p-3">{quotation.createdBy?.username}</td>
                         <td className="p-3">{quotation.createdAt}</td>
                         <td className="p-3">{quotation.price}</td>
+                        <td className="p-3">{quotation.status}</td>
                         <td className="p-3">
                             <div className="flex flex-col">
                                 <div>

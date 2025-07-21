@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { PartResolved } from '../../models/Part';
+import { fetchParts } from '../../service/PartService';
+import type { QuotationCreateDTO } from '../../models/Quotation';
+import { createQuotation } from '../../service/QuotationService';
 
 type QuotationFormProps = {
     mode: "create" | "edit";
@@ -12,14 +16,41 @@ type QuotationFormProps = {
 };
 
 export default function QuotationForm({ mode, onCancel, defaultValues }: QuotationFormProps) {
+
+    const [parts, setParts] = useState<PartResolved[]>([])
+
+    useEffect(() => {
+        async function loadParts() {
+            const data = await fetchParts()
+            setParts(data)
+        }
+        loadParts()
+    }, [])
+
     const [referencia, setReferencia] = useState(defaultValues?.referencia || '');
     const [status, setStatus] = useState(defaultValues?.status || 'pending');
     const [fornecedor, setFornecedor] = useState(defaultValues?.fornecedor || '');
     const [valor, setValor] = useState(defaultValues?.valor || '');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log({ referencia, status, fornecedor, valor });
+
+        const quotationData: QuotationCreateDTO = {
+            reference: referencia,
+            status: status,
+            supplier: fornecedor,
+            price: Number(valor.replace(/\D/g, ''))
+        }
+
+        try {
+            await createQuotation(quotationData);
+        } catch (error) {
+            console.error("Erro ao criar cotação:", error);
+            alert("Erro ao criar cotação. Tente novamente.");
+            return;
+        } finally {
+            onCancel();
+        }
     };
 
     const onPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,23 +83,27 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
             <div className="grid mt-3 grid-cols-1 md:grid-cols-2 gap-4">
                 <label>
                     <h3>Referência</h3>
-                    <input
-                        type="text"
+                    <select
                         required
                         value={referencia}
                         onChange={(e) => setReferencia(e.target.value)}
                         className="form-input"
-                    />
+                    >
+                        <option value="">Selecione um peça</option>
+                        {parts.map((part) => (
+                            <option key={part.id} value={part.id}>{part.id}</option>
+                        ))}
+                    </select>
                 </label>
 
                 <label>
                     <h3>Status</h3>
                     <select
+                        required
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
                         className="form-input"
                     >
-                        <option value="">Selecione um status</option>
                         <option value="pending">Pendente</option>
                         <option value="approved">Aprovada</option>
                         <option value="rejected">Rejeitada</option>
@@ -78,9 +113,9 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                 <label>
                     <h3>Fornecedor</h3>
                     <input
+                        required
                         type="text"
                         value={fornecedor}
-                        required
                         onChange={(e) => setFornecedor(e.target.value)}
                         className="form-input"
                     />
@@ -89,9 +124,9 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                 <label>
                     <h3>Valor</h3>
                     <input
+                        required
                         type="text"
                         value={valor}
-                        required
                         onChange={onPriceChange}
                         placeholder="R$ 0,00"
                         className="form-input"
