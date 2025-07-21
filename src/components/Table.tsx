@@ -1,12 +1,14 @@
 import DeleteButton from './delete-button'
 import EditButton from './edit-button'
 import { useQuotation } from '../hooks/useQuotation'
+import TableSkeleton from './TableSkeleton';
 
 
 export default function Table() {
 
     const {data, loading, error, refetch} = useQuotation();
 
+    if (loading) return <TableSkeleton />
     if (!data) return null;
 
     return (
