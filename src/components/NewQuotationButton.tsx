@@ -5,12 +5,12 @@ import DetailSidebarContext from "../context/DetailSidebarContext";
 
 export default function NewQuotationButton() {
 
-    const context = useContext(DetailSidebarContext)
-    if (!context) {
+    const detailSidebarContext = useContext(DetailSidebarContext)
+    if (!detailSidebarContext) {
         throw new Error("Sidebar must be used within DetailSidebarProvider")
     }
 
-    const { open } = context
+    const { open } = detailSidebarContext
 
     return (
         <>

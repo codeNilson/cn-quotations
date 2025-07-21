@@ -8,9 +8,12 @@ import SidebarContext from "./context/SidebarContext.tsx";
 import SidebarButton from "./components/sidebar-button.tsx"
 import ThemeButton from "./components/toggle-theme-button.tsx";
 import NewQuotationButton from "./components/NewQuotationButton.tsx";
-import DetailsideBar from "./components/DetailsideBar.tsx";
+import DetailSideBar from "./components/DetailSideBar.tsx";
+import { useQuotation } from "./hooks/useQuotation.tsx";
 
 function App() {
+
+  const { data, loading, refetch } = useQuotation();
 
   const sidebarContext = useContext(SidebarContext)
 
@@ -22,7 +25,7 @@ function App() {
 
   return (
     <>
-      <DetailsideBar />
+      <DetailSideBar onSuccess={refetch} />
       <div className="bg-gray-100 dark:bg-neutral-900 min-h-screen gap-3 flex">
         <Sidebar />
         <main className={`w-full transition duration-300`} onClick={isOpen ? toggleSidebar : undefined}>
@@ -75,7 +78,7 @@ function App() {
               <NewQuotationButton />
             </div>
             <div className="overflow-x-auto shadow-md">
-              <Table />
+              <Table data={data} loading={loading} />
             </div>
           </div>
         </main>

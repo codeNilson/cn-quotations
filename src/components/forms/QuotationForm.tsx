@@ -6,6 +6,7 @@ import { createQuotation } from '../../service/QuotationService';
 
 type QuotationFormProps = {
     mode: "create" | "edit";
+    onSuccess?: () => void;
     onCancel: () => void;
     defaultValues?: {
         referencia?: string;
@@ -15,7 +16,7 @@ type QuotationFormProps = {
     };
 };
 
-export default function QuotationForm({ mode, onCancel, defaultValues }: QuotationFormProps) {
+export default function QuotationForm({ mode, onSuccess, onCancel, defaultValues }: QuotationFormProps) {
 
     const [parts, setParts] = useState<PartResolved[]>([])
 
@@ -50,6 +51,7 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
             return;
         } finally {
             onCancel();
+            onSuccess?.();
         }
     };
 
