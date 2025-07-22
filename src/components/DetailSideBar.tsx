@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import QuotationForm from "./forms/QuotationForm"
 import DetailSidebarContext from "../context/DetailSidebarContext"
+import type { QuotationFormData } from "../types"
 
 export default function DetailSidebar() {
 
@@ -18,8 +19,8 @@ export default function DetailSidebar() {
                 {type === "quotation-create" && (
                     <QuotationForm mode="create" onCancel={close} />
                 )}
-                {type === "quotation-edit" && (
-                    <QuotationForm mode="edit" defaultValues={data} onCancel={close} />
+                {type === "quotation-edit" && data && "reference" in data && (
+                    <QuotationForm mode="edit" defaultValues={data as QuotationFormData} onCancel={close} />
                 )}
             </aside>
         </div>

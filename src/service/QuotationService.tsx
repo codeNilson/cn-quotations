@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import type { Quotation, QuotationCreateDTO, QuotationResolved } from "../models/Quotation";
 import { fetchPart } from "./PartService";
@@ -14,8 +14,16 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
     }))
 
     return Promise.all(rawQuotations.map(async (quotation) => {
-        let part = null
-        let createdBy = null
+        let part = {
+            id: '',
+            name: '[sem nome]',
+            machine_name: '[sem nome]'
+        };
+
+        let createdBy = {
+            id: '',
+            username: '[sem nome]'
+        };
 
         if (quotation.part) {
             const partData = await fetchPart(quotation.part.id)
@@ -63,4 +71,14 @@ export async function createQuotation(quotation: QuotationCreateDTO) {
     };
 
     await addDoc(collection(db, 'quotations'), newQuotation);
+}
+
+export async function updateQuotation(id: string, quotation: QuotationCreateDTO) {
+    const quotationRef = doc(db, 'quotations', id);
+    await updateDoc(quotationRef, {
+        supplier: quotation.supplier,
+        status: quotation.status,
+        price: quotation.price,
+        updatedAt: new Date()
+    });
 }

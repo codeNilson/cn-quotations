@@ -1,11 +1,9 @@
 import { createContext, useState } from "react";
+import type { SidebarContextType, SidebarContextProps } from "../types/context";
 
-const SidebarContext = createContext<{
-    isOpen: boolean;
-    toggleSidebar: () => void;
-} | null>(null);
+const SidebarContext = createContext<SidebarContextType | null>(null);
 
-export const SidebarContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const SidebarContextProvider = ({ children }: SidebarContextProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     function toggleSidebar() {
@@ -13,7 +11,7 @@ export const SidebarContextProvider = ({ children }: { children: React.ReactNode
     }
 
     return (
-        <SidebarContext.Provider value={{ isOpen, toggleSidebar: toggleSidebar }}>
+        <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>
             {children}
         </SidebarContext.Provider>
     );

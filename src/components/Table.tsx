@@ -31,8 +31,8 @@ export default function Table() {
                         key={quotation.id}
                         className="odd:bg-gray-50 dark:odd:bg-neutral-700 even:bg-white dark:even:bg-neutral-800 hover:bg-orange-100 text-center"
                     >
-                        <td className="p-3">{quotation.part?.name}</td>
-                        <td className="p-3">{quotation.part?.id}</td>
+                        <td className="p-3">{quotation.part.name}</td>
+                        <td className="p-3">{quotation.part.id}</td>
                         <td className="p-3">{quotation.supplier}</td>
                         <td className="p-3">{quotation.createdBy?.username}</td>
                         <td className="p-3">{quotation.createdAt}</td>
@@ -41,7 +41,7 @@ export default function Table() {
                         <td className="p-3">
                             <div className="flex flex-col">
                                 <div>
-                                    <EditButton />
+                                    <EditButton data={{ id: quotation.id, reference: quotation.part.id, status: quotation.status, supplier: quotation.supplier, price: quotation.price }} />
                                 </div>
                                 <div>
                                     <DeleteButton />

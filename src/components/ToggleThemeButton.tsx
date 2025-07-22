@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 
-export default function ThemeButton() {
+export default function ToggleThemeButton() {
 
     const themeContext = useContext(ThemeContext);
 
     if (!themeContext) {
-        throw new Error("Context is not provided");
+        throw new Error("ThemeContext is not provided");
     }
 
     const { theme, toggleTheme } = themeContext;

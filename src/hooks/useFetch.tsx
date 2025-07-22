@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 
 export function useFetch<T>(fetchFunction: () => Promise<T>) {
-    const [loading, setLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [data, setData] = useState<T | null>(null);
     const [error, setError] = useState<Error | null>(null);
 
     const load = async () => {
-        setLoading(true)
+        setIsLoading(true)
         setError(null)
 
         try {
@@ -15,7 +15,7 @@ export function useFetch<T>(fetchFunction: () => Promise<T>) {
         } catch (err) {
             setError(err as Error)
         } finally {
-            setLoading(false)
+            setIsLoading(false)
         }
     }
 
@@ -23,5 +23,5 @@ export function useFetch<T>(fetchFunction: () => Promise<T>) {
         load()
     },[])
 
-    return { loading, data, error, refetch:load }
+    return { isLoading, data, error, refetch:load }
 }

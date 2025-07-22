@@ -12,7 +12,7 @@ export default function SidebarButton({ onToggleSidebar }: SidebarButtonProps) {
     const themeContext = useContext(ThemeContext)
 
     if (!themeContext) {
-        throw new Error("SidebarContext is not provided");
+        throw new Error("ThemeContext is not provided");
     }
 
     const { theme } = themeContext

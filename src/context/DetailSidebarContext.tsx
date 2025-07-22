@@ -1,35 +1,19 @@
 import { createContext, useState } from "react";
+import type { 
+    DetailSidebarContextType, 
+    DetailSidebarType, 
+    DetailSidebarData,
+    DetailSidebarContextProps 
+} from "../types/context";
 
-type DetailSidebarType =
-    | 'quotation-create'
-    | 'quotation-edit'
-    | 'part-create'
-    | 'part-edit'
-    | null;
+const DetailSidebarContext = createContext<DetailSidebarContextType | null>(null)
 
-export type QuotationFormData = {
-    referencia: string;
-    status: string;
-    fornecedor: string;
-    valor: string;
-}
-
-type SidebarContextType = {
-    type: DetailSidebarType
-    data?: QuotationFormData
-    open: (type: DetailSidebarType, data?: QuotationFormData) => void
-    close: () => void,
-    isOpen: boolean
-}
-
-const DetailSidebarContext = createContext<SidebarContextType | null>(null)
-
-export const DetailSidebarContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const DetailSidebarContextProvider = ({ children }: DetailSidebarContextProps) => {
     const [type, setType] = useState<DetailSidebarType>(null)
-    const [data, setData] = useState<QuotationFormData | undefined>(undefined)
+    const [data, setData] = useState<DetailSidebarData | undefined>(undefined)
     const [isOpen, setIsOpen] = useState(false)
 
-    function open(type: DetailSidebarType, data?: QuotationFormData) {
+    function open(type: DetailSidebarType, data?: DetailSidebarData) {
         setIsOpen(true)
         setType(type)
         setData(data)

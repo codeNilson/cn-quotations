@@ -1,22 +1,12 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import type { PartResolved } from '../../models/Part';
+import type { QuotationCreateDTO, QuotationFormProps } from '../../models/Quotation';
 import { fetchParts } from '../../service/PartService';
-import type { QuotationCreateDTO } from '../../models/Quotation';
-import { createQuotation } from '../../service/QuotationService';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createQuotation, updateQuotation } from '../../service/QuotationService';
+import { convertToBRL } from '../../utils/ConvertToBRL';
 
-type QuotationFormProps = {
-    mode: "create" | "edit";
-    onCancel: () => void;
-    defaultValues?: {
-        referencia?: string;
-        status?: string;
-        fornecedor?: string;
-        valor?: string;
-    };
-};
-
-export default function QuotationForm({ mode, onCancel, defaultValues }: QuotationFormProps) {
+export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues }: QuotationFormProps) {
     const [parts, setParts] = useState<PartResolved[]>([]);
 
     useEffect(() => {
@@ -27,17 +17,32 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
         loadParts();
     }, []);
 
-    const [referencia, setReferencia] = useState(defaultValues?.referencia || '');
+    const [reference, setReference] = useState(defaultValues?.reference || '');
     const [status, setStatus] = useState(defaultValues?.status || 'pending');
-    const [fornecedor, setFornecedor] = useState(defaultValues?.fornecedor || '');
-    const [valor, setValor] = useState(defaultValues?.valor || '');
+    const [supplier, setSupplier] = useState(defaultValues?.supplier || '');
+    const [price, setPrice] = useState(convertToBRL(defaultValues?.price || ''));
 
     const queryClient = useQueryClient();
+
     const mutation = useMutation({
-        mutationFn: (quotationData: QuotationCreateDTO) => createQuotation(quotationData),
+        mutationFn: async (data: QuotationCreateDTO) => {
+            if (mode === "create") {
+                return await createQuotation(data);
+            } else {
+                if (!defaultValues?.id) {
+                    throw new Error("ID da cotação não fornecido para edição.");
+                }
+                return await updateQuotation(defaultValues.id, data);
+            }
+        },
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['quotations'] })
+            queryClient.invalidateQueries({ queryKey: ['quotations'] });
+            onSuccess?.();
             onCancel();
+        },
+        onError: (error) => {
+            console.error("Erro ao processar cotação:", error);
+            alert("Erro ao processar cotação. Verifique o log.");
         }
     });
 
@@ -45,10 +50,10 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
         e.preventDefault();
 
         const quotationData: QuotationCreateDTO = {
-            reference: referencia,
+            reference: reference,
             status: status,
-            supplier: fornecedor,
-            price: Number(valor.replace(/\D/g, ''))
+            supplier: supplier,
+            price: Number(price.replace(/\D/g, ''))
         };
 
         try {
@@ -59,16 +64,13 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
         }
     };
 
-    const onPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         const numbersOnly = value.replace(/\D/g, '');
 
-        const formatted = (Number(numbersOnly) / 100).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
+        const formatted = convertToBRL(numbersOnly);
 
-        setValor(formatted);
+        setPrice(formatted);
     };
 
     return (
@@ -90,8 +92,8 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <h3>Referência</h3>
                     <select
                         required
-                        value={referencia}
-                        onChange={(e) => setReferencia(e.target.value)}
+                        value={reference}
+                        onChange={(e) => setReference(e.target.value)}
                         className="form-input"
                     >
                         <option value="">Selecione um peça</option>
@@ -120,8 +122,8 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <input
                         required
                         type="text"
-                        value={fornecedor}
-                        onChange={(e) => setFornecedor(e.target.value)}
+                        value={supplier}
+                        onChange={(e) => setSupplier(e.target.value)}
                         className="form-input"
                     />
                 </label>
@@ -131,8 +133,8 @@ export default function QuotationForm({ mode, onCancel, defaultValues }: Quotati
                     <input
                         required
                         type="text"
-                        value={valor}
-                        onChange={onPriceChange}
+                        value={price}
+                        onChange={handlePriceChange}
                         placeholder="R$ 0,00"
                         className="form-input"
                     />

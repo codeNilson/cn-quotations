@@ -6,13 +6,13 @@ import logo from "../assets/logo.png";
 
 
 export default function Sidebar() {
-    const context = useContext(SidebarContext)
+    const sidebarContext = useContext(SidebarContext)
 
-    if (!context) {
+    if (!sidebarContext) {
         throw new Error("SidebarContext is not provided");
     }
 
-    const { isOpen } = context;
+    const { isOpen } = sidebarContext;
 
     // Array com os itens do menu
     const menuItems = [
@@ -39,8 +39,8 @@ export default function Sidebar() {
 
     return (
         <>
-            {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={context.toggleSidebar}></div>}
-            <aside className={`w-65 h-screen bg-gray-50 dark:bg-neutral-800 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
+            {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={sidebarContext.toggleSidebar}></div>}
+            <aside className={`w-65 min-h-screen bg-gray-50 dark:bg-neutral-800 z-50 fixed lg:static transition duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
                 <div className="border-b-2 p-3 border-gray-100">
                     <img src={logo} alt="central nordeste logo" />
                 </div>

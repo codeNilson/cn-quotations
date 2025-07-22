@@ -2,22 +2,16 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import DetailSidebarContext from "../context/DetailSidebarContext";
+import type { QuotationFormData } from "../models/Quotation";
 
-export default function EditButton() {
+export default function EditButton({data}: {data:QuotationFormData}) {
 
-    const context = useContext(DetailSidebarContext)
-    if (!context) {
+    const detailSidebarContext = useContext(DetailSidebarContext)
+    if (!detailSidebarContext) {
         throw new Error("Sidebar must be used within DetailSidebarProvider")
     }
 
-    const { open } = context
-
-    const data = {
-        "referencia": "XD987",
-        "status": "Pendente",
-        "fornecedor": "Fornecedor XYZ",
-        "valor": "1500.00",
-    }
+    const { open } = detailSidebarContext
 
     return (
         <>

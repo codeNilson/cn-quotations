@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar.tsx";
 import Table from "./components/Table.tsx";
 import SidebarContext from "./context/SidebarContext.tsx";
 import SidebarButton from "./components/SidebarButton.tsx"
-import ThemeButton from "./components/ToggleThemeButton.tsx";
+import ToggleThemeButton from "./components/ToggleThemeButton.tsx";
 import NewQuotationButton from "./components/NewQuotationButton.tsx";
 import DetailSideBar from "./components/DetailSideBar.tsx"
 
@@ -29,7 +29,7 @@ function App() {
           <div className="cards-container flex flex-wrap items-center px-5 py-2">
             <SidebarButton onToggleSidebar={toggleSidebar} />
             <h2 className="text-2xl font-bold tracking-tight flex-1">Dashboard</h2>
-            <ThemeButton />
+            <ToggleThemeButton />
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
               <Card>
                 <div className="flex justify-between items-center">
