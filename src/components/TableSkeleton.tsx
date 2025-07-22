@@ -1,5 +1,5 @@
 export default function TableSkeleton() {
-    const rows = 5 // quantas linhas fake
+    const rows = 5
 
     return (
         <table className="table-auto border border-gray-200 w-full bg-white dark:bg-neutral-800 rounded-lg overflow-hidden">

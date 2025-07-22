@@ -2,7 +2,7 @@ import { useContext } from "react"
 import QuotationForm from "./forms/QuotationForm"
 import DetailSidebarContext from "../context/DetailSidebarContext"
 
-export default function DetailSidebar({ onSuccess }: { onSuccess?: () => void }) {
+export default function DetailSidebar() {
 
     const detailSidebarContext = useContext(DetailSidebarContext)
     if (!detailSidebarContext) {
@@ -16,7 +16,7 @@ export default function DetailSidebar({ onSuccess }: { onSuccess?: () => void })
             {isOpen && <div className="fixed inset-0 bg-black/85 z-80" onClick={close} />}
             <aside className={`fixed right-0 ${isOpen ? 'translate-x-0' : 'translate-x-full'} h-full w-auto md:w-3xl bg-gray-50 dark:bg-neutral-800 p-4 z-90`}>
                 {type === "quotation-create" && (
-                    <QuotationForm mode="create" onSuccess={onSuccess} onCancel={close} />
+                    <QuotationForm mode="create" onCancel={close} />
                 )}
                 {type === "quotation-edit" && (
                     <QuotationForm mode="edit" defaultValues={data} onCancel={close} />

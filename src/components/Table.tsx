@@ -1,12 +1,14 @@
-import type { QuotationResolved } from '../models/Quotation';
-import DeleteButton from './delete-button';
-import EditButton from './edit-button';
+import { useQuotations } from '../hooks/useQuotation';
+import DeleteButton from './DeleteButton';
+import EditButton from './EditButton';
 import TableSkeleton from './TableSkeleton';
 
 
-export default function Table({data, loading}: {data?: QuotationResolved[], loading?: boolean}) {
+export default function Table() {
 
-    if (loading) return <TableSkeleton />
+    const { data, isLoading } = useQuotations();
+
+    if (isLoading) return <TableSkeleton />
     if (!data) return null;
 
     return (

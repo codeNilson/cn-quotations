@@ -5,15 +5,12 @@ import Card from "./components/Card.tsx";
 import Sidebar from "./components/Sidebar.tsx";
 import Table from "./components/Table.tsx";
 import SidebarContext from "./context/SidebarContext.tsx";
-import SidebarButton from "./components/sidebar-button.tsx"
-import ThemeButton from "./components/toggle-theme-button.tsx";
+import SidebarButton from "./components/SidebarButton.tsx"
+import ThemeButton from "./components/ToggleThemeButton.tsx";
 import NewQuotationButton from "./components/NewQuotationButton.tsx";
 import DetailSideBar from "./components/DetailSideBar.tsx"
-import { useQuotations } from "./hooks/useQuotation.tsx";
 
 function App() {
-
-  const { data, isLoading, refetch } = useQuotations();
 
   const sidebarContext = useContext(SidebarContext)
 
@@ -25,7 +22,7 @@ function App() {
 
   return (
     <>
-      <DetailSideBar onSuccess={refetch} />
+      <DetailSideBar />
       <div className="bg-gray-100 dark:bg-neutral-900 min-h-screen gap-3 flex">
         <Sidebar />
         <main className={`w-full transition duration-300`} onClick={isOpen ? toggleSidebar : undefined}>
@@ -78,7 +75,7 @@ function App() {
               <NewQuotationButton />
             </div>
             <div className="overflow-x-auto shadow-md">
-              <Table data={data} loading={isLoading} />
+              <Table />
             </div>
           </div>
         </main>

@@ -3,10 +3,10 @@ import type { PartResolved } from '../../models/Part';
 import { fetchParts } from '../../service/PartService';
 import type { QuotationCreateDTO } from '../../models/Quotation';
 import { createQuotation } from '../../service/QuotationService';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 type QuotationFormProps = {
     mode: "create" | "edit";
-    onSuccess?: () => void;
     onCancel: () => void;
     defaultValues?: {
         referencia?: string;
@@ -16,22 +16,30 @@ type QuotationFormProps = {
     };
 };
 
-export default function QuotationForm({ mode, onSuccess, onCancel, defaultValues }: QuotationFormProps) {
-
-    const [parts, setParts] = useState<PartResolved[]>([])
+export default function QuotationForm({ mode, onCancel, defaultValues }: QuotationFormProps) {
+    const [parts, setParts] = useState<PartResolved[]>([]);
 
     useEffect(() => {
         async function loadParts() {
-            const data = await fetchParts()
-            setParts(data)
+            const data = await fetchParts();
+            setParts(data);
         }
-        loadParts()
-    }, [])
+        loadParts();
+    }, []);
 
     const [referencia, setReferencia] = useState(defaultValues?.referencia || '');
     const [status, setStatus] = useState(defaultValues?.status || 'pending');
     const [fornecedor, setFornecedor] = useState(defaultValues?.fornecedor || '');
     const [valor, setValor] = useState(defaultValues?.valor || '');
+
+    const queryClient = useQueryClient();
+    const mutation = useMutation({
+        mutationFn: (quotationData: QuotationCreateDTO) => createQuotation(quotationData),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['quotations'] })
+            onCancel();
+        }
+    });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,23 +49,18 @@ export default function QuotationForm({ mode, onSuccess, onCancel, defaultValues
             status: status,
             supplier: fornecedor,
             price: Number(valor.replace(/\D/g, ''))
-        }
+        };
 
         try {
-            await createQuotation(quotationData);
+            await mutation.mutateAsync(quotationData);
         } catch (error) {
             console.error("Erro ao criar cotação:", error);
-            alert("Erro ao criar cotação. Tente novamente.");
-            return;
-        } finally {
-            onCancel();
-            onSuccess?.();
+            alert("Erro ao criar cotação. Verifique o log.")
         }
     };
 
     const onPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-
         const numbersOnly = value.replace(/\D/g, '');
 
         const formatted = (Number(numbersOnly) / 100).toLocaleString('pt-BR', {
@@ -66,7 +69,7 @@ export default function QuotationForm({ mode, onSuccess, onCancel, defaultValues
         });
 
         setValor(formatted);
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -147,8 +150,9 @@ export default function QuotationForm({ mode, onSuccess, onCancel, defaultValues
                 <button
                     type="submit"
                     className="btn btn-primary text-white"
+                    disabled={mutation.isPending}
                 >
-                    {mode === "create" ? "Criar" : "Salvar"}
+                    {mutation.isPending ? 'Salvando...' : mode === "create" ? "Criar" : "Salvar"}
                 </button>
             </div>
         </form>
