@@ -8,11 +8,12 @@ type DetailSidebarType =
     | null;
 
 export type QuotationFormData = {
-    referencia?: string;
-    status?: string;
-    fornecedor?: string;
-    valor?: string;
+    referencia: string;
+    status: string;
+    fornecedor: string;
+    valor: string;
 }
+
 type SidebarContextType = {
     type: DetailSidebarType
     data?: QuotationFormData
