@@ -4,7 +4,7 @@ import EditButton from './edit-button';
 import TableSkeleton from './TableSkeleton';
 
 
-export default function Table({data, loading}: {data: QuotationResolved[] | null, loading?: boolean}) {
+export default function Table({data, loading}: {data?: QuotationResolved[], loading?: boolean}) {
 
     if (loading) return <TableSkeleton />
     if (!data) return null;

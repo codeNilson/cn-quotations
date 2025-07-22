@@ -8,12 +8,12 @@ import SidebarContext from "./context/SidebarContext.tsx";
 import SidebarButton from "./components/sidebar-button.tsx"
 import ThemeButton from "./components/toggle-theme-button.tsx";
 import NewQuotationButton from "./components/NewQuotationButton.tsx";
-import DetailSideBar from "./components/DetailSideBar.tsx";
-import { useQuotation } from "./hooks/useQuotation.tsx";
+import DetailSideBar from "./components/DetailSideBar.tsx"
+import { useQuotations } from "./hooks/useQuotation.tsx";
 
 function App() {
 
-  const { data, loading, refetch } = useQuotation();
+  const { data, isLoading, refetch } = useQuotations();
 
   const sidebarContext = useContext(SidebarContext)
 
@@ -78,7 +78,7 @@ function App() {
               <NewQuotationButton />
             </div>
             <div className="overflow-x-auto shadow-md">
-              <Table data={data} loading={loading} />
+              <Table data={data} loading={isLoading} />
             </div>
           </div>
         </main>
