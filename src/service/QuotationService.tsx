@@ -1,6 +1,7 @@
 import { addDoc, collection, doc, getDocs, updateDoc, deleteDoc, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import type { Quotation, QuotationCreateDTO, QuotationResolved, QuotationUpdateDTO } from "../models/Quotation";
+import type { PartResolved } from "../models/Part";
 import { fetchPart } from "./PartService";
 import { fetchUser } from "./UserService";
 
@@ -25,10 +26,11 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
     }))
 
     return Promise.all(rawQuotations.map(async (quotation) => {
-        let part = {
+        let part: PartResolved = {
             id: '',
             name: '[sem nome]',
-            machine_name: '[sem nome]'
+            machine_name: '[sem nome]',
+            createdAt: ''
         };
 
         let createdBy = {
@@ -39,11 +41,7 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
         if (quotation.part) {
             const partData = await fetchPart(quotation.part.id)
             if (partData) {
-                part = {
-                    id: partData.id,
-                    name: partData.name || '[sem nome]',
-                    machine_name: partData.machine_name || '[sem nome]'
-                }
+                part = partData;
             }
         }
 
