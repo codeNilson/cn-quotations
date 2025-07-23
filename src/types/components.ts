@@ -32,7 +32,8 @@ export type EditButtonProps = {
 // Delete button props
 export type DeleteButtonProps = {
     onDelete?: () => void
-    itemId?: string
+    itemId: string  // Make itemId required
+    itemType?: string  // Optional type description (e.g., "cotação", "peça")
 }
 
 // Sidebar button props

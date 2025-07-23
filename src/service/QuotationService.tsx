@@ -1,8 +1,18 @@
-import { addDoc, collection, doc, getDocs, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-import type { Quotation, QuotationCreateDTO, QuotationResolved } from "../models/Quotation";
+import type { Quotation, QuotationCreateDTO, QuotationResolved, QuotationUpdateDTO } from "../models/Quotation";
 import { fetchPart } from "./PartService";
 import { fetchUser } from "./UserService";
+
+// Helper function to create update data with timestamp
+function createUpdateData(quotationData: QuotationCreateDTO): QuotationUpdateDTO {
+    return {
+        supplier: quotationData.supplier,
+        status: quotationData.status,
+        price: quotationData.price,
+        updatedAt: new Date()
+    };
+}
 
 export async function fetchQuotations(): Promise<QuotationResolved[]> {
     const quotationCollection = collection(db, 'quotations');
@@ -55,6 +65,9 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
             createdAt: quotation.createdAt
                 ? quotation.createdAt.toDate().toLocaleDateString()
                 : '',
+            updatedAt: quotation.updatedAt
+                ? quotation.updatedAt.toDate().toLocaleDateString()
+                : undefined,
             price: quotation.price || ''
         }
     }))
@@ -73,12 +86,14 @@ export async function createQuotation(quotation: QuotationCreateDTO) {
     await addDoc(collection(db, 'quotations'), newQuotation);
 }
 
-export async function updateQuotation(id: string, quotation: QuotationCreateDTO) {
+export async function updateQuotation(id: string, quotationData: QuotationCreateDTO): Promise<void> {
     const quotationRef = doc(db, 'quotations', id);
-    await updateDoc(quotationRef, {
-        supplier: quotation.supplier,
-        status: quotation.status,
-        price: quotation.price,
-        updatedAt: new Date()
-    });
+    const updateData = createUpdateData(quotationData);
+    
+    await updateDoc(quotationRef, updateData);
+}
+
+export async function deleteQuotation(id: string): Promise<void> {
+    const quotationRef = doc(db, 'quotations', id);
+    await deleteDoc(quotationRef);
 }

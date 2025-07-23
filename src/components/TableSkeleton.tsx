@@ -10,6 +10,7 @@ export default function TableSkeleton() {
                     <th className="p-3">Fornecedor</th>
                     <th className="p-3">Colaborador</th>
                     <th className="p-3">Criado em</th>
+                    <th className="p-3">Atualizado em</th>
                     <th className="p-3">Preço</th>
                     <th className="p-3">Ações</th>
                 </tr>
@@ -41,6 +42,11 @@ export default function TableSkeleton() {
                         </td>
 
                         {/* Coluna: Criado em */}
+                        <td className="p-3">
+                            <div className="h-4 w-24 bg-gray-300 dark:bg-gray-600 rounded animate-pulse mx-auto" />
+                        </td>
+
+                        {/* Coluna: Atualizado em */}
                         <td className="p-3">
                             <div className="h-4 w-24 bg-gray-300 dark:bg-gray-600 rounded animate-pulse mx-auto" />
                         </td>

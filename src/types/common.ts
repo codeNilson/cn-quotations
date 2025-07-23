@@ -2,6 +2,12 @@
 
 export type ID = string;
 
+// Timestamp types
+export type TimestampFields = {
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+
 // API Response wrapper
 export type ApiResponse<T> = {
     data: T;

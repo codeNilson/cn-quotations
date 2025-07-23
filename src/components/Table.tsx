@@ -1,56 +1,104 @@
 import { useQuotations } from '../hooks/useQuotation';
+import { usePagination } from '../hooks/usePagination';
 import DeleteButton from './DeleteButton';
 import EditButton from './EditButton';
+import ItemsPerPageSelector from './ItemsPerPageSelector';
+import Pagination from './Pagination';
 import TableSkeleton from './TableSkeleton';
 
 
 export default function Table() {
 
     const { data, isLoading } = useQuotations();
+    
+    const {
+        currentPage,
+        totalPages,
+        itemsPerPage,
+        totalItems,
+        paginatedData,
+        goToPage,
+        setItemsPerPage
+    } = usePagination({
+        data: data || [],
+        itemsPerPage: 10
+    });
 
     if (isLoading) return <TableSkeleton />
     if (!data) return null;
 
     return (
-        <table className="table-auto border border-gray-200 w-full bg-white dark:bg-neutral-800 rounded-lg overflow-hidden">
-            <thead>
-                <tr>
-                    <th className="p-3">Peça</th>
-                    <th className="p-3">Referência</th>
-                    <th className="p-3">Fornecedor</th>
-                    <th className="p-3">Colaborador</th>
-                    <th className="p-3">Criado em</th>
-                    <th className="p-3">Preço</th>
-                    <th className="p-3">Status</th>
-                    <th className="p-3">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((quotation) => (
-                    <tr
-                        key={quotation.id}
-                        className="odd:bg-gray-50 dark:odd:bg-neutral-700 even:bg-white dark:even:bg-neutral-800 hover:bg-orange-100 text-center"
-                    >
-                        <td className="p-3">{quotation.part.name}</td>
-                        <td className="p-3">{quotation.part.id}</td>
-                        <td className="p-3">{quotation.supplier}</td>
-                        <td className="p-3">{quotation.createdBy?.username}</td>
-                        <td className="p-3">{quotation.createdAt}</td>
-                        <td className="p-3">{quotation.price}</td>
-                        <td className="p-3">{quotation.status}</td>
-                        <td className="p-3">
-                            <div className="flex flex-col">
-                                <div>
-                                    <EditButton data={{ id: quotation.id, reference: quotation.part.id, status: quotation.status, supplier: quotation.supplier, price: quotation.price }} />
-                                </div>
-                                <div>
-                                    <DeleteButton />
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        <div className="w-full">
+            {/* Header with items per page selector */}
+            <div className="flex justify-between items-center mb-4">
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Total: {totalItems} cotações
+                </div>
+                <ItemsPerPageSelector 
+                    itemsPerPage={itemsPerPage}
+                    totalItems={totalItems}
+                    onItemsPerPageChange={setItemsPerPage}
+                />
+            </div>
+
+            {/* Table container with horizontal scroll */}
+            <div className="w-full overflow-x-auto bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg">
+                <table className="table-auto w-full min-w-[800px]">
+                    <thead className="bg-gray-50 dark:bg-neutral-700">
+                        <tr>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Peça</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Referência</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Fornecedor</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Colaborador</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Criado em</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Atualizado em</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Preço</th>
+                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Status</th>
+                            <th className="p-3 text-center font-medium text-gray-700 dark:text-gray-300">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {paginatedData.length === 0 ? (
+                            <tr>
+                                <td colSpan={9} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                                    {totalItems === 0 ? 'Nenhuma cotação encontrada' : 'Nenhum item nesta página'}
+                                </td>
+                            </tr>
+                        ) : (
+                            paginatedData.map((quotation) => (
+                                <tr
+                                    key={quotation.id}
+                                    className="border-t border-gray-200 dark:border-neutral-700 hover:bg-orange-50 dark:hover:bg-neutral-700/50"
+                                >
+                                    <td className="p-3 text-gray-900 dark:text-gray-100">{quotation.part.name}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.part.id}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.supplier}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.createdBy?.username}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.createdAt}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.updatedAt || '-'}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.price}</td>
+                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.status}</td>
+                                    <td className="p-3">
+                                        <div className="flex flex-col gap-1 items-center">
+                                            <EditButton data={{ id: quotation.id, reference: quotation.part.id, status: quotation.status, supplier: quotation.supplier, price: quotation.price }} />
+                                            <DeleteButton itemId={quotation.id} />
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))
+                        )}
+                    </tbody>
+                </table>
+            </div>
+            
+            {/* Pagination component - fixed outside of scroll container */}
+            <Pagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                itemsPerPage={itemsPerPage}
+                totalItems={totalItems}
+                onPageChange={goToPage}
+            />
+        </div>
     )
 }

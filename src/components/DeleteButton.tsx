@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { useDeleteQuotation } from '../hooks/useDelete';
+import type { DeleteButtonProps } from '../types/components';
 import React from "react";
 
-export default function DeleteButton(): React.JSX.Element {
+export default function DeleteButton({ itemId, itemType = "cotação", onDelete }: DeleteButtonProps): React.JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
+  
+  const deleteMutation = useDeleteQuotation();
 
   useEffect(() => {
     if (open) {
@@ -28,9 +31,28 @@ export default function DeleteButton(): React.JSX.Element {
     setOpen(false);
   };
 
+  const handleDelete = async () => {
+    if (!itemId) {
+      console.error("ID não encontrado. Não é possível excluir o item.");
+      return;
+    }
+    
+    try {
+      await deleteMutation.mutateAsync(itemId);
+      onDelete?.(); // Call callback if provided
+      setOpen(false); // Close modal on success
+    } catch (error) {
+      console.error("Erro ao excluir:", error);
+    }
+  };
+
   return (
     <>
-      <button className="btn btn-icon" onClick={() => setShow(true)}>
+      <button 
+        className="btn btn-icon" 
+        onClick={() => setOpen(true)}
+        disabled={deleteMutation.isPending}
+      >
         <FontAwesomeIcon icon={faTrash} className="icon-delete" />
       </button>
 
@@ -44,12 +66,22 @@ export default function DeleteButton(): React.JSX.Element {
           <div
             className={`bg-white dark:bg-neutral-900 dark:text-white p-6 rounded shadow w-full max-w-md ${open ? "scale-100" : "scale-95"}`}>
             <h2 className="text-xl font-bold mb-2 text-left">Tem certeza?</h2>
-            <p className="text-left text-sm">Isso irá excluir a cotação.</p>
+            <p className="text-left text-sm">Isso irá excluir a {itemType} permanentemente.</p>
             <div className="flex justify-end gap-2 mt-4">
-              <button onClick={close} className="btn border border-gray-200">
-                Fechar
+              <button 
+                onClick={close} 
+                className="btn border border-gray-200"
+                disabled={deleteMutation.isPending}
+              >
+                Cancelar
               </button>
-              <button className="btn bg-red-500 text-white">Excluir</button>
+              <button 
+                className="btn bg-red-500 text-white hover:bg-red-600 disabled:opacity-50"
+                onClick={handleDelete}
+                disabled={deleteMutation.isPending}
+              >
+                {deleteMutation.isPending ? 'Excluindo...' : 'Excluir'}
+              </button>
             </div>
           </div>
         </div>

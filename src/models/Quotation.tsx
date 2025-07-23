@@ -22,6 +22,7 @@ export type QuotationResolved = {
     supplier: string
     createdBy?: UserResolved  // Remove | null, use only optional
     createdAt: string
+    updatedAt?: string  // Optional because old records might not have it
     price: string
     status: string
 }
@@ -36,7 +37,13 @@ export type QuotationCreateDTO = {
 
 // Data for updating quotations
 export type QuotationUpdateDTO = Partial<Omit<QuotationCreateDTO, 'reference'>> & {
-    updatedAt?: Date
+    updatedAt: Date  // Always set when updating
+}
+
+// Data for deleting quotations
+export type QuotationDeleteDTO = {
+    id: ID
+    reason?: string  // Optional reason for deletion
 }
 
 // Form data structure
