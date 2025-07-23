@@ -15,17 +15,21 @@ export default function PartsPage() {
     const { toggleSidebar } = sidebarContext;
 
     return (
-        <div className="px-5 py-2">
-            <div className="flex items-center py-4 gap-4">
+        <>
+            {/* Header com botões */}
+            <div className="flex items-center px-5 py-2">
                 <SidebarButton onToggleSidebar={toggleSidebar} />
-                <div className="flex-1">
-                    <PartsTable />
-                </div>
+                <h2 className="text-2xl font-bold tracking-tight flex-1">Peças</h2>
                 <div className="flex items-center gap-3">
                     <LogoutButton />
                     <ToggleThemeButton />
                 </div>
             </div>
-        </div>
+            
+            {/* Conteúdo principal */}
+            <div className="px-5 py-2">
+                <PartsTable />
+            </div>
+        </>
     );
 }

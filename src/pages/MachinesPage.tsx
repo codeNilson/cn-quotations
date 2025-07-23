@@ -14,8 +14,9 @@ export default function MachinesPage() {
     const { toggleSidebar } = sidebarContext;
 
     return (
-        <div className="px-5 py-2">
-            <div className="flex justify-between items-center py-4">
+        <>
+            {/* Header com botões */}
+            <div className="flex items-center px-5 py-2">
                 <SidebarButton onToggleSidebar={toggleSidebar} />
                 <h2 className="text-2xl font-bold tracking-tight flex-1">Máquinas</h2>
                 <div className="flex items-center gap-3">
@@ -23,9 +24,13 @@ export default function MachinesPage() {
                     <ToggleThemeButton />
                 </div>
             </div>
-            <div className="flex items-center justify-center min-h-[400px]">
-                <p className="text-gray-500 dark:text-gray-400">Página em desenvolvimento</p>
+            
+            {/* Conteúdo principal */}
+            <div className="px-5 py-2">
+                <div className="flex items-center justify-center min-h-[400px]">
+                    <p className="text-gray-500 dark:text-gray-400">Página em desenvolvimento</p>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

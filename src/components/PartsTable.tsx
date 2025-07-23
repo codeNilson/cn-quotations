@@ -87,9 +87,6 @@ export default function PartsTable() {
         <div className="space-y-4 md:space-y-6">
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">
-                    Peças
-                </h1>
                 <div className="flex flex-col sm:flex-row gap-2">
                     {data && data.length === 0 && (
                         <button
