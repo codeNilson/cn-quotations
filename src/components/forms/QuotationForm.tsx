@@ -147,6 +147,18 @@ export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues
                 </label>
             </div>
 
+            {/* Campo não editável para mostrar quando foi atualizado (apenas no modo de edição) */}
+            {mode === "edit" && defaultValues?.updatedAt && (
+                <div className="mt-4 p-3 bg-gray-50 dark:bg-neutral-800 rounded border">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Última atualização
+                    </label>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                        {defaultValues.updatedAt}
+                    </p>
+                </div>
+            )}
+
             <div className="flex justify-end gap-2 mt-4">
                 <button
                     type="button"

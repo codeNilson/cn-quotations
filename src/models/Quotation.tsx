@@ -53,6 +53,7 @@ export type QuotationFormData = {
     status: string
     supplier: string
     price: string
+    updatedAt?: string  // Optional field for display purposes
 }
 
 // Form props with proper typing

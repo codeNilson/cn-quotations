@@ -129,21 +129,19 @@ export default function PartsTable() {
 
             {/* Desktop Table - Hidden on mobile */}
             <div className="hidden md:block w-full overflow-x-auto bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg">
-                <table className="table-auto w-full min-w-[600px]">
+                <table className="table-auto w-full min-w-[400px]">
                     <thead className="bg-gray-50 dark:bg-neutral-700">
                         <tr>
                             <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Referência</th>
                             <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Nome da Peça</th>
                             <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Máquina</th>
-                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Criado em</th>
-                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Atualizado em</th>
                             <th className="p-3 text-center font-medium text-gray-700 dark:text-gray-300">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         {paginatedData.length === 0 ? (
                             <tr>
-                                <td colSpan={6} className="p-8 text-center text-gray-500 dark:text-gray-400">
+                                <td colSpan={4} className="p-8 text-center text-gray-500 dark:text-gray-400">
                                     <div className="space-y-2">
                                         <p>Nenhuma peça encontrada</p>
                                         <p className="text-sm">Clique em "Nova Peça" para começar a cadastrar suas peças</p>
@@ -164,12 +162,6 @@ export default function PartsTable() {
                                     </td>
                                     <td className="p-3 text-gray-700 dark:text-gray-300">
                                         {part.machine_name}
-                                    </td>
-                                    <td className="p-3 text-gray-700 dark:text-gray-300">
-                                        {part.createdAt}
-                                    </td>
-                                    <td className="p-3 text-gray-700 dark:text-gray-300">
-                                        {part.updatedAt || '-'}
                                     </td>
                                     <td className="p-3">
                                         <div className="flex gap-1 justify-center">
@@ -247,20 +239,6 @@ export default function PartsTable() {
                                         {part.machine_name}
                                     </span>
                                 </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500 dark:text-gray-400">Criado em:</span>
-                                    <span className="text-gray-700 dark:text-gray-300">
-                                        {part.createdAt}
-                                    </span>
-                                </div>
-                                {part.updatedAt && (
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-500 dark:text-gray-400">Atualizado em:</span>
-                                        <span className="text-gray-700 dark:text-gray-300">
-                                            {part.updatedAt}
-                                        </span>
-                                    </div>
-                                )}
                             </div>
                         </div>
                     ))
