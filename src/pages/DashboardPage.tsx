@@ -6,6 +6,7 @@ import Table from "../components/Table.tsx";
 import SidebarContext from "../context/SidebarContext.tsx";
 import SidebarButton from "../components/SidebarButton.tsx"
 import ToggleThemeButton from "../components/ToggleThemeButton.tsx";
+import LogoutButton from "../components/LogoutButton.tsx";
 import NewQuotationButton from "../components/NewQuotationButton.tsx";
 
 export default function DashboardPage() {
@@ -22,7 +23,10 @@ export default function DashboardPage() {
       <div className="cards-container flex flex-wrap items-center px-5 py-2">
         <SidebarButton onToggleSidebar={toggleSidebar} />
         <h2 className="text-2xl font-bold tracking-tight flex-1">Dashboard</h2>
-        <ToggleThemeButton />
+        <div className="flex items-center gap-3">
+          <LogoutButton />
+          <ToggleThemeButton />
+        </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
           <Card>
             <div className="flex justify-between items-center">

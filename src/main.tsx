@@ -5,6 +5,8 @@ import Layout from './components/Layout.js'
 import DashboardPage from './pages/DashboardPage.js'
 import PartsPage from './pages/PartsPage.js'
 import MachinesPage from './pages/MachinesPage.js'
+import ProtectedRoute from './components/ProtectedRoute.js'
+import { AuthProvider } from './context/AuthContext.js'
 import { SidebarContextProvider } from './context/SidebarContext.js'
 import { ThemeContextProvider } from './context/ThemeContext.js'
 import { DetailSidebarContextProvider } from './context/DetailSidebarContext.js'
@@ -15,7 +17,11 @@ const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,
@@ -37,11 +43,13 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeContextProvider>
-        <SidebarContextProvider>
-          <DetailSidebarContextProvider>
-            <RouterProvider router={router} />
-          </DetailSidebarContextProvider>
-        </SidebarContextProvider>
+        <AuthProvider>
+          <SidebarContextProvider>
+            <DetailSidebarContextProvider>
+              <RouterProvider router={router} />
+            </DetailSidebarContextProvider>
+          </SidebarContextProvider>
+        </AuthProvider>
       </ThemeContextProvider>
     </QueryClientProvider>
   </StrictMode>
