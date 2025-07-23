@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useAuth } from '../hooks/useAuth';
+import { useToast } from '../hooks/useToast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/logo.png';
@@ -13,6 +14,7 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   
   const { login } = useAuth();
+  const { showLoading, dismiss } = useToast();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -25,9 +27,13 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
 
+    const loadingToast = showLoading('Fazendo login...');
+
     try {
       await login(email, password);
+      dismiss(loadingToast);
     } catch (error: unknown) {
+      dismiss(loadingToast);
       console.error('Erro ao fazer login:', error);
       
       // Traduzir erros do Firebase para português

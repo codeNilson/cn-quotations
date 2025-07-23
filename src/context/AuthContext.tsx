@@ -7,6 +7,7 @@ import {
   onAuthStateChanged 
 } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useToast } from '../hooks/useToast';
 
 interface AuthContextType {
   user: User | null;
@@ -24,6 +25,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const { showSuccess, showError } = useToast();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -35,11 +37,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      showSuccess('Login realizado com sucesso!');
+    } catch (error) {
+      showError('Erro ao fazer login. Verifique suas credenciais.');
+      throw error;
+    }
   };
 
   const logout = async () => {
-    await signOut(auth);
+    try {
+      await signOut(auth);
+      showSuccess('Logout realizado com sucesso!');
+    } catch (error) {
+      showError('Erro ao fazer logout.');
+      throw error;
+    }
   };
 
   const value = {
