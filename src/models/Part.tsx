@@ -1,34 +1,48 @@
-import type { ID, BaseFormProps } from "../types/common"
+import type { BaseFormProps } from "../types/common"
+import type { Timestamp } from 'firebase/firestore';
 
 // Raw data from Firestore
 export type Part = {
-    machine_name: string
-    name: string
+    id: string; // Reference number
+    name: string;
+    machine_name: string;
+    createdAt: Timestamp;
+    updatedAt?: Timestamp;
 }
 
-// Resolved data with ID
+// Resolved data for display
 export type PartResolved = {
-    id: ID
-    machine_name: string
-    name: string
+    id: string; // Reference number
+    name: string;
+    machine_name: string;
+    createdAt: string;
+    updatedAt?: string;
 }
 
 // Data for creating new parts
 export type PartCreateDTO = {
-    machine_name: string
-    name: string
+    id: string; // Reference number
+    name: string;
+    machine_name: string;
 }
 
 // Data for updating parts
-export type PartUpdateDTO = Partial<PartCreateDTO> & {
-    updatedAt?: Date
+export type PartUpdateDTO = {
+    name: string;
+    machine_name: string;
+    updatedAt: Date;
+}
+
+// Data for deleting parts
+export type PartDeleteDTO = {
+    id: string;
 }
 
 // Form data structure
 export type PartFormData = {
-    id: ID
-    machine_name: string
-    name: string
+    id: string;
+    name: string;
+    machine_name: string;
 }
 
 // Form props with proper typing

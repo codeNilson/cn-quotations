@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDeleteQuotation } from '../hooks/useDelete';
+import { useDeletePart } from '../hooks/usePartMutations';
 import type { DeleteButtonProps } from '../types/components';
 import React from "react";
 
@@ -9,7 +10,11 @@ export default function DeleteButton({ itemId, itemType = "cotação", onDelete 
   const [open, setOpen] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
   
-  const deleteMutation = useDeleteQuotation();
+  const deleteQuotationMutation = useDeleteQuotation();
+  const deletePartMutation = useDeletePart();
+  
+  // Use the appropriate mutation based on itemType
+  const deleteMutation = itemType === "peça" ? deletePartMutation : deleteQuotationMutation;
 
   useEffect(() => {
     if (open) {

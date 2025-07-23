@@ -1,12 +1,15 @@
 import { useContext, useEffect } from "react";
 import SidebarContext from "../context/SidebarContext.tsx";
+import { useNavigation } from "../hooks/useNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCogs, faFile, faTableColumns, faTruck } from "@fortawesome/free-solid-svg-icons";
+import { faCogs, faTableColumns, faTruck } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.png";
+import type { Page } from "../context/NavigationContext";
 
 
 export default function Sidebar() {
     const sidebarContext = useContext(SidebarContext)
+    const { currentPage, setCurrentPage } = useNavigation();
 
     if (!sidebarContext) {
         throw new Error("SidebarContext is not provided");
@@ -15,11 +18,10 @@ export default function Sidebar() {
     const { isOpen } = sidebarContext;
 
     // Array com os itens do menu
-    const menuItems = [
-        { icon: faTableColumns, label: "Dashboard" },
-        { icon: faFile, label: "Cotações" },
-        { icon: faCogs, label: "Peças" },
-        { icon: faTruck, label: "Máquinas" }
+    const menuItems: { icon: typeof faTableColumns; label: string; page: Page }[] = [
+        { icon: faTableColumns, label: "Dashboard", page: "dashboard" },
+        { icon: faCogs, label: "Peças", page: "parts" },
+        { icon: faTruck, label: "Máquinas", page: "machines" }
     ];
 
     useEffect(() => {
@@ -50,7 +52,12 @@ export default function Sidebar() {
                             {menuItems.map((item, index) => (
                                 <li key={index} className="text-lg md:text-sm text-gray-500">
                                     <button
-                                        className="btn w-full flex items-center dark:text-white gap-2 text-left hover:text-orange-600"
+                                        onClick={() => setCurrentPage(item.page)}
+                                        className={`btn w-full flex items-center gap-2 text-left transition-colors ${
+                                            currentPage === item.page
+                                                ? 'bg-orange-100 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400'
+                                                : 'dark:text-white hover:text-orange-600'
+                                        }`}
                                     >
                                         <FontAwesomeIcon icon={item.icon} />
                                         <span>{item.label}</span>
