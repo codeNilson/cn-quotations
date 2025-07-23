@@ -4,6 +4,7 @@ import DeleteButton from './DeleteButton';
 import EditButton from './EditButton';
 import ItemsPerPageSelector from './ItemsPerPageSelector';
 import Pagination from './Pagination';
+import StatusBadge from './StatusBadge';
 import TableSkeleton from './TableSkeleton';
 
 
@@ -21,7 +22,7 @@ export default function Table() {
         setItemsPerPage
     } = usePagination({
         data: data || [],
-        itemsPerPage: 10
+        itemsPerPage: 5
     });
 
     if (isLoading) return <TableSkeleton />
@@ -77,7 +78,9 @@ export default function Table() {
                                     <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.createdAt}</td>
                                     <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.updatedAt || '-'}</td>
                                     <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.price}</td>
-                                    <td className="p-3 text-gray-700 dark:text-gray-300">{quotation.status}</td>
+                                    <td className="p-3">
+                                        <StatusBadge status={quotation.status} />
+                                    </td>
                                     <td className="p-3">
                                         <div className="flex flex-col gap-1 items-center">
                                             <EditButton data={{ id: quotation.id, reference: quotation.part.id, status: quotation.status, supplier: quotation.supplier, price: quotation.price }} />
