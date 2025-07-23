@@ -16,7 +16,6 @@ export default function PartsPage() {
 
     return (
         <>
-            {/* Header com botões */}
             <div className="flex items-center px-5 py-2">
                 <SidebarButton onToggleSidebar={toggleSidebar} />
                 <h2 className="text-2xl font-bold tracking-tight flex-1">Peças</h2>
@@ -26,7 +25,6 @@ export default function PartsPage() {
                 </div>
             </div>
             
-            {/* Conteúdo principal */}
             <div className="px-5 py-2">
                 <PartsTable />
             </div>

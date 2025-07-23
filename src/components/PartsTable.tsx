@@ -84,9 +84,16 @@ export default function PartsTable() {
     if (!data) return null;
 
     return (
-        <div className="space-y-4 md:space-y-6">
-            {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+        <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                <div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        Gerenciar Peças
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                        Total: {totalItems} peças cadastradas
+                    </p>
+                </div>
                 <div className="flex flex-col sm:flex-row gap-2">
                     {data && data.length === 0 && (
                         <button
@@ -106,7 +113,6 @@ export default function PartsTable() {
                 </div>
             </div>
 
-            {/* Form Modal */}
             {showForm && (
                 <PartForm
                     initialData={editingPart || undefined}
@@ -116,23 +122,22 @@ export default function PartsTable() {
                 />
             )}
 
-            {/* Summary */}
-            <div className="text-sm text-gray-600 dark:text-gray-400 flex flex-col sm:flex-row sm:justify-between gap-2">
-                <span>Total: {totalItems} peças</span>
-                {data && data.length === 0 && (
-                    <span className="text-orange-600">Nenhuma peça encontrada - clique em "Nova Peça" para adicionar</span>
-                )}
-            </div>
+            {data && data.length === 0 && (
+                <div className="text-center py-8 bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg">
+                    <p className="text-orange-600 dark:text-orange-400">
+                        Nenhuma peça encontrada - clique em "Nova Peça" para adicionar
+                    </p>
+                </div>
+            )}
 
-            {/* Desktop Table - Hidden on mobile */}
-            <div className="hidden md:block w-full overflow-x-auto bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg">
+            <div className="hidden md:block w-full overflow-x-auto bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg shadow-sm">
                 <table className="table-auto w-full min-w-[400px]">
                     <thead className="bg-gray-50 dark:bg-neutral-700">
                         <tr>
-                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Referência</th>
-                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Nome da Peça</th>
-                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Máquina</th>
-                            <th className="p-3 text-center font-medium text-gray-700 dark:text-gray-300">Ações</th>
+                            <th className="p-4 text-left font-medium text-gray-700 dark:text-gray-300">Referência</th>
+                            <th className="p-4 text-left font-medium text-gray-700 dark:text-gray-300">Nome da Peça</th>
+                            <th className="p-4 text-left font-medium text-gray-700 dark:text-gray-300">Máquina</th>
+                            <th className="p-4 text-center font-medium text-gray-700 dark:text-gray-300">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -185,10 +190,9 @@ export default function PartsTable() {
                 </table>
             </div>
 
-            {/* Mobile Cards - Visible only on mobile */}
             <div className="md:hidden space-y-3">
                 {paginatedData.length === 0 ? (
-                    <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6 text-center">
+                    <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6 text-center shadow-sm">
                         <div className="space-y-2 text-gray-500 dark:text-gray-400">
                             <p>Nenhuma peça encontrada</p>
                             <p className="text-sm">Clique em "Nova Peça" para começar a cadastrar suas peças</p>
@@ -242,14 +246,15 @@ export default function PartsTable() {
                 )}
             </div>
 
-            {/* Pagination */}
-            <Pagination 
-                currentPage={currentPage}
-                totalPages={totalPages}
-                itemsPerPage={itemsPerPage}
-                totalItems={totalItems}
-                onPageChange={goToPage}
-            />
+            <div className="flex justify-center pt-4">
+                <Pagination 
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    itemsPerPage={itemsPerPage}
+                    totalItems={totalItems}
+                    onPageChange={goToPage}
+                />
+            </div>
         </div>
     );
 }
