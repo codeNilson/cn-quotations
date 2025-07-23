@@ -71,7 +71,7 @@ export default function DashboardPage() {
           <h4 className="font-bold text-2xl tracking-tight">Cotações</h4>
           <NewQuotationButton />
         </div>
-        <div className="overflow-x-auto shadow-md">
+        <div className="overflow-x-auto">
           <Table />
         </div>
       </div>

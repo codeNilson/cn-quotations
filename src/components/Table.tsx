@@ -52,7 +52,7 @@ export default function Table() {
             />
 
             {/* Header with items per page selector */}
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center px-2 mb-4">
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                     {filteredData.length !== data.length 
                         ? `${totalItems} de ${data.length} cotações`
