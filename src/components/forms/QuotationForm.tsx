@@ -4,7 +4,7 @@ import type { PartResolved } from '../../models/Part';
 import type { QuotationCreateDTO, QuotationFormProps } from '../../models/Quotation';
 import { fetchParts } from '../../service/PartService';
 import { createQuotation, updateQuotation } from '../../service/QuotationService';
-import { convertToBRL } from '../../utils/ConvertToBRL';
+import { formatCurrency, parseCurrency } from '../../utils/formatters';
 
 export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues }: QuotationFormProps) {
     const [parts, setParts] = useState<PartResolved[]>([]);
@@ -20,7 +20,7 @@ export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues
     const [reference, setReference] = useState(defaultValues?.reference || '');
     const [status, setStatus] = useState(defaultValues?.status || 'pending');
     const [supplier, setSupplier] = useState(defaultValues?.supplier || '');
-    const [price, setPrice] = useState(convertToBRL(defaultValues?.price || ''));
+    const [price, setPrice] = useState(formatCurrency(defaultValues?.price || ''));
 
     const queryClient = useQueryClient();
 
@@ -53,7 +53,7 @@ export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues
             reference: reference,
             status: status,
             supplier: supplier,
-            price: Number(price.replace(/\D/g, ''))
+            price: parseCurrency(price)
         };
 
         try {
@@ -68,7 +68,13 @@ export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues
         const value = e.target.value;
         const numbersOnly = value.replace(/\D/g, '');
 
-        const formatted = convertToBRL(numbersOnly);
+        if (numbersOnly === '') {
+            setPrice('');
+            return;
+        }
+
+        const numericValue = Number(numbersOnly) / 100;
+        const formatted = formatCurrency(numericValue);
 
         setPrice(formatted);
     };
