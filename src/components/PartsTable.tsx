@@ -84,13 +84,13 @@ export default function PartsTable() {
     if (!data) return null;
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
             {/* Header */}
-            <div className="flex justify-between items-center">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">
                     Peças
                 </h1>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                     {data && data.length === 0 && (
                         <button
                             onClick={handleCreateTestPart}
@@ -102,7 +102,7 @@ export default function PartsTable() {
                     )}
                     <button
                         onClick={() => setShowForm(true)}
-                        className="px-4 py-2 text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md transition-colors"
+                        className="px-4 py-2 text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md transition-colors w-full sm:w-auto"
                     >
                         Nova Peça
                     </button>
@@ -120,15 +120,15 @@ export default function PartsTable() {
             )}
 
             {/* Summary */}
-            <div className="text-sm text-gray-600 dark:text-gray-400 flex justify-between">
+            <div className="text-sm text-gray-600 dark:text-gray-400 flex flex-col sm:flex-row sm:justify-between gap-2">
                 <span>Total: {totalItems} peças</span>
                 {data && data.length === 0 && (
                     <span className="text-orange-600">Nenhuma peça encontrada - clique em "Nova Peça" para adicionar</span>
                 )}
             </div>
 
-            {/* Table */}
-            <div className="w-full overflow-x-auto bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg">
+            {/* Desktop Table - Hidden on mobile */}
+            <div className="hidden md:block w-full overflow-x-auto bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg">
                 <table className="table-auto w-full min-w-[600px]">
                     <thead className="bg-gray-50 dark:bg-neutral-700">
                         <tr>
@@ -194,6 +194,77 @@ export default function PartsTable() {
                         )}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Mobile Cards - Visible only on mobile */}
+            <div className="md:hidden space-y-3">
+                {paginatedData.length === 0 ? (
+                    <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6 text-center">
+                        <div className="space-y-2 text-gray-500 dark:text-gray-400">
+                            <p>Nenhuma peça encontrada</p>
+                            <p className="text-sm">Clique em "Nova Peça" para começar a cadastrar suas peças</p>
+                        </div>
+                    </div>
+                ) : (
+                    paginatedData.map((part) => (
+                        <div
+                            key={part.id}
+                            className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-4 space-y-3"
+                        >
+                            {/* Header with reference and actions */}
+                            <div className="flex justify-between items-start">
+                                <div>
+                                    <h3 className="font-medium text-gray-900 dark:text-gray-100 font-mono text-sm">
+                                        {part.id}
+                                    </h3>
+                                    <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-1">
+                                        {part.name}
+                                    </p>
+                                </div>
+                                <div className="flex gap-1">
+                                    <button
+                                        onClick={() => handleEdit({
+                                            id: part.id,
+                                            name: part.name,
+                                            machine_name: part.machine_name
+                                        })}
+                                        className="px-2 py-1 text-xs font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded transition-colors"
+                                    >
+                                        Editar
+                                    </button>
+                                    <DeleteButton 
+                                        itemId={part.id}
+                                        itemType="peça"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Details */}
+                            <div className="space-y-2 text-sm">
+                                <div className="flex justify-between">
+                                    <span className="text-gray-500 dark:text-gray-400">Máquina:</span>
+                                    <span className="text-gray-700 dark:text-gray-300 font-medium">
+                                        {part.machine_name}
+                                    </span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span className="text-gray-500 dark:text-gray-400">Criado em:</span>
+                                    <span className="text-gray-700 dark:text-gray-300">
+                                        {part.createdAt}
+                                    </span>
+                                </div>
+                                {part.updatedAt && (
+                                    <div className="flex justify-between">
+                                        <span className="text-gray-500 dark:text-gray-400">Atualizado em:</span>
+                                        <span className="text-gray-700 dark:text-gray-300">
+                                            {part.updatedAt}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
 
             {/* Pagination */}
