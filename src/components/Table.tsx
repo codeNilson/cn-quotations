@@ -71,7 +71,7 @@ export default function Table() {
                 <table className="table-auto w-full min-w-[600px]">
                     <thead className="bg-gray-50 dark:bg-neutral-700">
                         <tr>
-                            <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Peça</th>
+                            <th className="p-3 text-center font-medium text-gray-700 dark:text-gray-300">Peça</th>
                             <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Referência</th>
                             <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Fornecedor</th>
                             <th className="p-3 text-left font-medium text-gray-700 dark:text-gray-300">Colaborador</th>
