@@ -1,16 +1,27 @@
 import { useQuotations } from '../hooks/useQuotation';
 import { usePagination } from '../hooks/usePagination';
+import { useTableFilters } from '../hooks/useTableFilters';
 import DeleteButton from './DeleteButton';
 import EditButton from './EditButton';
 import ItemsPerPageSelector from './ItemsPerPageSelector';
 import Pagination from './Pagination';
 import StatusBadge from './StatusBadge';
+import TableFilters from './TableFilters';
 import TableSkeleton from './TableSkeleton';
 
 
 export default function Table() {
 
     const { data, isLoading } = useQuotations();
+    
+    const {
+        filters,
+        setFilters,
+        clearFilters,
+        filteredData,
+        availableReferences,
+        availableSuppliers
+    } = useTableFilters(data || []);
     
     const {
         currentPage,
@@ -21,7 +32,7 @@ export default function Table() {
         goToPage,
         setItemsPerPage
     } = usePagination({
-        data: data || [],
+        data: filteredData,
         itemsPerPage: 5
     });
 
@@ -30,10 +41,22 @@ export default function Table() {
 
     return (
         <div className="w-full">
+            {/* Table Filters */}
+            <TableFilters 
+                filters={filters}
+                onFiltersChange={setFilters}
+                onClearFilters={clearFilters}
+                availableReferences={availableReferences}
+                availableSuppliers={availableSuppliers}
+            />
+
             {/* Header with items per page selector */}
             <div className="flex justify-between items-center mb-4">
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                    Total: {totalItems} cotações
+                    {filteredData.length !== data.length 
+                        ? `${totalItems} de ${data.length} cotações`
+                        : `Total: ${totalItems} cotações`
+                    }
                 </div>
                 <ItemsPerPageSelector 
                     itemsPerPage={itemsPerPage}

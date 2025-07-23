@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, updateDoc, deleteDoc, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import type { Quotation, QuotationCreateDTO, QuotationResolved, QuotationUpdateDTO } from "../models/Quotation";
 import { fetchPart } from "./PartService";
@@ -16,7 +16,8 @@ function createUpdateData(quotationData: QuotationCreateDTO): QuotationUpdateDTO
 
 export async function fetchQuotations(): Promise<QuotationResolved[]> {
     const quotationCollection = collection(db, 'quotations');
-    const querySnapshot = await getDocs(quotationCollection);
+    const quotationQuery = query(quotationCollection, orderBy('createdAt', 'desc'));
+    const querySnapshot = await getDocs(quotationQuery);
 
     const rawQuotations: Quotation[] = querySnapshot.docs.map((doc) => ({
         id: doc.id,
