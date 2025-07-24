@@ -2,9 +2,6 @@
 
 Sistema moderno de gerenciamento de cotações para a Central Nordeste, desenvolvido com React, TypeScript e Firebase.
 
-![Banner da Aplicação](./docs/images/banner.png)
-<!-- Placeholder: Adicione aqui uma imagem de banner da aplicação -->
-
 ## 📋 Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
