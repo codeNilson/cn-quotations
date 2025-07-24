@@ -5,8 +5,10 @@ import type { QuotationCreateDTO, QuotationFormProps } from '../../models/Quotat
 import { fetchParts } from '../../service/PartService';
 import { createQuotation, updateQuotation } from '../../service/QuotationService';
 import { formatCurrency, parseCurrency } from '../../utils/formatters';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues }: QuotationFormProps) {
+    const { user } = useAuth();
     const [parts, setParts] = useState<PartResolved[]>([]);
 
     useEffect(() => {
@@ -146,6 +148,18 @@ export default function QuotationForm({ mode, onCancel, onSuccess, defaultValues
                     />
                 </label>
             </div>
+
+            {/* Campo informativo para mostrar quem está criando (apenas no modo de criação) */}
+            {mode === "create" && user && (
+                <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded border border-blue-200 dark:border-blue-800">
+                    <label className="block text-sm font-medium text-blue-700 dark:text-blue-300">
+                        Criado por
+                    </label>
+                    <p className="mt-1 text-sm text-blue-600 dark:text-blue-400">
+                        {user.displayName || user.email}
+                    </p>
+                </div>
+            )}
 
             {/* Campo não editável para mostrar quando foi atualizado (apenas no modo de edição) */}
             {mode === "edit" && defaultValues?.updatedAt && (

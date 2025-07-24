@@ -7,6 +7,7 @@ import {
   onAuthStateChanged 
 } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { ensureUserExists } from '../service/UserService';
 import { useToast } from '../hooks/useToast';
 
 interface AuthContextType {
@@ -28,7 +29,19 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const { showSuccess, showError } = useToast();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // Garante que o usuário existe na coleção users do Firestore
+        try {
+          await ensureUserExists({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName
+          });
+        } catch (error) {
+          console.error('Erro ao sincronizar usuário:', error);
+        }
+      }
       setUser(user);
       setLoading(false);
     });

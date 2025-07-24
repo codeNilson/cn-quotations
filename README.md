@@ -41,7 +41,6 @@ O CN-Quotations é um sistema completo para gerenciamento de cotações industri
 - Paginação inteligente
 
 ![Dashboard](./docs/images/dashboard.png)
-<!-- Placeholder: Adicione aqui uma screenshot do dashboard -->
 
 ### 🔧 Gerenciamento de Peças
 - CRUD completo de peças
@@ -50,7 +49,6 @@ O CN-Quotations é um sistema completo para gerenciamento de cotações industri
 - Sistema de referências únicas
 
 ![Gestão de Peças](./docs/images/parts-management.png)
-<!-- Placeholder: Adicione aqui uma screenshot da página de peças -->
 
 ### 📋 Sistema de Cotações
 - Criação e edição de cotações
@@ -95,9 +93,6 @@ O CN-Quotations é um sistema completo para gerenciamento de cotações industri
 - **ESLint** - Linting de código
 - **TypeScript Compiler** - Verificação de tipos
 - **Git** - Controle de versão
-
-![Tecnologias](./docs/images/tech-stack.png)
-<!-- Placeholder: Adicione aqui uma imagem mostrando as tecnologias -->
 
 ## 📋 Pré-requisitos
 
@@ -192,7 +187,6 @@ O banco de dados utiliza as seguintes coleções:
 
 ### 1. Login
 ![Login](./docs/images/login.png)
-<!-- Placeholder: Screenshot da tela de login -->
 
 Acesse a aplicação e faça login com suas credenciais.
 
