@@ -24,7 +24,6 @@ Sistema moderno de gerenciamento de cotações para a Central Nordeste, desenvol
 O CN-Quotations é um sistema completo para gerenciamento de cotações industriais, desenvolvido especificamente para a Central Nordeste. O sistema permite o controle total de peças, fornecedores, cotações e status de orçamentos, oferecendo uma interface moderna e responsiva para uso em desktop e mobile.
 
 ![Demonstração](./docs/gifs/demo.gif)
-<!-- Placeholder: Adicione aqui um GIF demonstrando o uso básico do sistema -->
 
 ## ✨ Funcionalidades
 
@@ -64,7 +63,6 @@ O CN-Quotations é um sistema completo para gerenciamento de cotações industri
 - Sidebar colapsível
 
 ![Modo Claro/Escuro](./docs/images/theme-toggle.gif)
-<!-- Placeholder: Adicione aqui um GIF mostrando a mudança de tema -->
 
 ## 🛠 Tecnologias
 
@@ -192,13 +190,11 @@ Acesse a aplicação e faça login com suas credenciais.
 
 ### 2. Dashboard
 ![Dashboard Uso](./docs/gifs/dashboard-usage.gif)
-<!-- Placeholder: GIF mostrando navegação no dashboard -->
 
 Visualize métricas importantes e navegue pelas cotações.
 
 ### 3. Gerenciar Peças
 ![Peças CRUD](./docs/gifs/parts-crud.gif)
-<!-- Placeholder: GIF mostrando CRUD de peças -->
 
 - Adicione novas peças com referência, nome e máquina
 - Edite peças existentes
@@ -206,7 +202,6 @@ Visualize métricas importantes e navegue pelas cotações.
 
 ### 4. Cotações
 ![Cotações](./docs/gifs/quotations-usage.gif)
-<!-- Placeholder: GIF mostrando uso de cotações -->
 
 - Crie cotações vinculadas a peças
 - Use filtros para encontrar cotações específicas
@@ -214,7 +209,6 @@ Visualize métricas importantes e navegue pelas cotações.
 
 ### 5. Mobile Experience
 ![Mobile](./docs/gifs/mobile-responsive.gif)
-<!-- Placeholder: GIF mostrando responsividade mobile -->
 
 A aplicação é totalmente responsiva e otimizada para mobile.
 
@@ -265,7 +259,6 @@ cn-quotations/
 ## 🎨 Temas e Customização
 
 ![Personalização](./docs/images/customization.png)
-<!-- Placeholder: Screenshot mostrando opções de personalização -->
 
 A aplicação suporta:
 - **Modo Claro**: Interface limpa e profissional
@@ -335,7 +328,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 **Denilson Silva**
 - GitHub: [@codeNilson](https://github.com/codeNilson)
-- LinkedIn: [Nilson Mendonça](https://linkedin.com/in/fcodenilson)
+- LinkedIn: [Denilson Silva](https://linkedin.com/in/fcodenilson)
 - Email: fcodenilson@gmail.com
 
 ---
