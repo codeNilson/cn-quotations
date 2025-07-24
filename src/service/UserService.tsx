@@ -1,4 +1,4 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import type { User, UserResolved } from "../models/User";
 import { db } from "../../firebase";
 
@@ -15,4 +15,21 @@ export async function fetchUser(userId: string): Promise<UserResolved | null> {
     }
 
     return null;
+}
+
+// Função para criar/atualizar usuário no Firestore baseado no Firebase Auth
+export async function ensureUserExists(authUser: { uid: string; email: string | null; displayName: string | null }): Promise<void> {
+    const userRef = doc(db, 'users', authUser.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+        // Cria o usuário na coleção users se não existir
+        const username = authUser.displayName || authUser.email?.split('@')[0] || 'Usuário';
+        await setDoc(userRef, {
+            username: username,
+            email: authUser.email,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        });
+    }
 }

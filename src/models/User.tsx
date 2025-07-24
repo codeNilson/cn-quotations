@@ -1,15 +1,20 @@
+import type { Timestamp } from "firebase/firestore"
 import type { ID, BaseFormProps } from "../types/common"
 
 // Raw data from Firestore
 export type User = {
     username: string
-    password: string
+    email?: string
+    password?: string  // Optional for Firebase Auth users
+    createdAt?: Timestamp
+    updatedAt?: Timestamp
 }
 
 // Resolved data with ID (without sensitive info)
 export type UserResolved = {
     id: ID
     username: string
+    email?: string
 }
 
 // Data for creating new users

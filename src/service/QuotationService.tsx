@@ -1,5 +1,5 @@
 import { addDoc, collection, doc, getDocs, updateDoc, deleteDoc, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db, auth } from "../../firebase";
 import type { Quotation, QuotationCreateDTO, QuotationResolved, QuotationUpdateDTO } from "../models/Quotation";
 import type { PartResolved } from "../models/Part";
 import { fetchPart } from "./PartService";
@@ -73,11 +73,17 @@ export async function fetchQuotations(): Promise<QuotationResolved[]> {
 }
 
 export async function createQuotation(quotation: QuotationCreateDTO) {
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+        throw new Error('Usuário não autenticado');
+    }
+
     const newQuotation = {
         part: doc(db, 'parts', quotation.reference),
         supplier: quotation.supplier,
         status: quotation.status,
         price: quotation.price,
+        createdBy: doc(db, 'users', currentUser.uid),
         createdAt: new Date(),
         updatedAt: new Date()
     };
