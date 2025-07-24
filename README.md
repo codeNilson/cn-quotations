@@ -52,6 +52,8 @@ O CN-Quotations é um sistema completo para gerenciamento de cotações industri
 - Badges de status coloridos (Aguardando, Concluída, Sem Retorno)
 - Controle de preços com formatação BRL
 
+![Gestão de Peças](./docs/images/quotations-management.gif)
+
 ### 🎨 Interface e UX
 - Design responsivo (mobile-first)
 - Modo claro e escuro
@@ -298,24 +300,6 @@ Contribuições são sempre bem-vindas! Para contribuir:
 - **Mobile-first** para responsividade
 - **Conventional Commits** para mensagens
 
-## 📈 Roadmap
-
-### 🔄 Próximas Versões
-
-- [ ] **Relatórios PDF** - Exportação de cotações
-- [ ] **Dashboard Analytics** - Gráficos avançados
-- [ ] **API Integration** - Integração com sistemas externos
-- [ ] **Bulk Operations** - Operações em lote
-- [ ] **User Roles** - Sistema de permissões
-- [ ] **Email Notifications** - Notificações automáticas
-- [ ] **Backup System** - Sistema de backup automático
-
-### 🐛 Melhorias Conhecidas
-
-- [ ] Otimização de performance para grandes datasets
-- [ ] Implementação de PWA
-- [ ] Suporte offline
-- [ ] Testes automatizados
 
 ## 📝 Licença
 
